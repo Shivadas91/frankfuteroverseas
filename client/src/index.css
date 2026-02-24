@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: 'Montserrat', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
   --font-serif: 'Playfair Display', serif;
 
   --color-background: hsl(var(--background));
@@ -34,7 +34,7 @@
 
 :root {
   /* Clean white background */
-  --background: 0 0% 100%;
+  --background: 0 0% 98%; /* Slightly off-white for premium feel */
   /* Deep Navy Blue for text */
   --foreground: 235 66% 15%;
 
@@ -57,7 +57,7 @@
 
   --border: 214 32% 91%;
   
-  --radius: 0.5rem;
+  --radius: 1rem; /* 16px border radius */
 }
 
 @layer base {
