@@ -225,8 +225,9 @@ export default function Home() {
       {/* MODERN HERO SECTION */}
       <section id="home" className="relative min-h-[90vh] flex items-center justify-center pt-20">
         <div className="absolute inset-0 z-0">
-          <img src={heroImg} alt="Students" className="w-full h-full object-cover object-top" />
-          <div className="absolute inset-0 bg-primary/70 mix-blend-multiply"></div>
+          <img src={heroImg} alt="Students" className="w-full h-full object-cover object-center" />
+          <div className="absolute inset-0 bg-primary/85 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-primary/30 to-transparent"></div>
         </div>
 
         <div className="relative z-10 container mx-auto px-4 flex justify-center">
@@ -326,7 +327,7 @@ export default function Home() {
               <Dialog>
                 <DialogTrigger asChild>
                   <button className="bg-white text-primary hover:bg-accent hover:text-primary font-bold rounded-full px-8 py-4 transition-all shadow-xl">
-                    Join Community
+                    Know More
                   </button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-md bg-white rounded-2xl">
