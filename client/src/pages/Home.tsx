@@ -10,7 +10,6 @@ import {
   MapPin,
   Phone,
   Mail,
-  Clock,
   ArrowRight,
   ChevronLeft,
   ChevronRight,
@@ -19,14 +18,19 @@ import {
   Home as HomeIcon,
   Plane,
   Globe,
-  MessageCircle
+  MessageCircle,
+  MessageCircleQuestion
 } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 
 import heroImg from "@/assets/images/hero.jpg";
-import success1 from "@/assets/images/success_1.jpg";
-import success2 from "@/assets/images/success_2.jpg";
-import success3 from "@/assets/images/success_3.jpg";
+
+// Real imported assets
+import abiImg from "@assets/abi_1772005944180.jpg";
+import ajayImg from "@assets/ajay_1772005944182.jpg";
+import alanImg from "@assets/alan__1772005944182.jpg";
+import chandyImg from "@assets/Chandy_1772005944183.jpg";
+import logoImg from "@assets/Blue_Gradient_Modern_Professional_Service_Health_Instagram_Pos_1772005944183.jpg";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -82,9 +86,17 @@ export default function Home() {
   ];
 
   const successStories = [
-    { name: "Alan Raj", details: "Summer Intake 2025", img: success1 },
-    { name: "Sarah Thomas", details: "Winter Intake 2024", img: success2 },
-    { name: "Kevin Matthew", details: "Summer Intake 2025", img: success3 },
+    { name: "Abi Varghese", details: "Summer Intake 2025", img: abiImg },
+    { name: "Ajay MG", details: "Summer Intake 2025", img: ajayImg },
+    { name: "Alan Raj", details: "Summer Intake 2025", img: alanImg },
+    { name: "Leya Chandy", details: "Summer Intake 2025", img: chandyImg },
+  ];
+
+  const grammarTopics = [
+    { rule: "Nominative", article: "der, die, das, die", pronoun: "ich, du, er/sie/es", usage: "Subject of the sentence" },
+    { rule: "Accusative", article: "den, die, das, die", pronoun: "mich, dich, ihn/sie/es", usage: "Direct object, motion" },
+    { rule: "Dative", article: "dem, der, dem, den", pronoun: "mir, dir, ihm/ihr/ihm", usage: "Indirect object, static" },
+    { rule: "Genitive", article: "des, der, des, der", pronoun: "meiner, deiner, seiner", usage: "Possession, belonging" },
   ];
 
   return (
@@ -93,22 +105,27 @@ export default function Home() {
       <header
         className={`fixed top-0 w-full z-50 transition-all duration-500 border-b border-transparent ${
           isScrolled
-            ? "bg-white/70 backdrop-blur-xl shadow-sm border-white/20 py-4"
-            : "bg-transparent py-6"
+            ? "bg-white/80 backdrop-blur-xl shadow-sm border-white/20 py-3"
+            : "bg-transparent py-5"
         }`}
       >
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <div className={`font-serif text-2xl font-bold tracking-tight transition-colors ${isScrolled ? "text-primary" : "text-white"}`}>
+          <div className="flex items-center gap-3">
+            <img 
+              src={logoImg} 
+              alt="Frankfuter Overseas Logo" 
+              className="w-10 h-10 md:w-12 md:h-12 object-cover rounded-md shadow-sm"
+            />
+            <div className={`font-serif text-xl md:text-2xl font-bold tracking-tight transition-colors leading-none ${isScrolled ? "text-primary" : "text-white"}`}>
               Frankfuter
-              <span className="block text-[10px] font-sans tracking-[0.2em] uppercase text-accent font-bold">
+              <span className="block text-[9px] md:text-[10px] font-sans tracking-[0.2em] uppercase text-accent font-bold mt-1">
                 Overseas
               </span>
             </div>
           </div>
 
           <nav className="hidden md:flex items-center gap-10">
-            {["Home", "Our Programmes", "More"].map((item) => (
+            {["Home", "Language Topics", "Programmes", "Testimonials"].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase().replace(" ", "-")}`}
@@ -123,12 +140,8 @@ export default function Home() {
           </nav>
 
           <div className="hidden md:flex items-center gap-6">
-            <div className="flex gap-4">
-              <a href="#" className={`transition-colors hover:text-accent ${isScrolled ? "text-primary/70" : "text-white/80"}`}><Linkedin className="w-5 h-5" /></a>
-              <a href="#" className={`transition-colors hover:text-accent ${isScrolled ? "text-primary/70" : "text-white/80"}`}><Instagram className="w-5 h-5" /></a>
-            </div>
             <Button className="bg-accent hover:bg-accent/90 text-primary font-bold rounded-full px-7 shadow-sm transition-transform hover:scale-105">
-              Sign Up
+              Consult an Expert
             </Button>
           </div>
 
@@ -146,7 +159,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             className="absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl shadow-lg flex flex-col p-6 md:hidden gap-6 border-t border-white/20"
           >
-            {["Home", "Our Programmes", "More"].map((item) => (
+            {["Home", "Language Topics", "Programmes", "Testimonials"].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase().replace(" ", "-")}`}
@@ -156,16 +169,17 @@ export default function Home() {
                 {item}
               </a>
             ))}
-            <Button className="w-full bg-accent text-primary font-bold rounded-full py-6 text-lg shadow-sm">Sign Up</Button>
+            <Button className="w-full bg-accent text-primary font-bold rounded-full py-6 text-lg shadow-sm">Consult an Expert</Button>
           </motion.div>
         )}
       </header>
 
-      {/* MODERN HERO SECTION (Centered with Glassmorphism) */}
+      {/* MODERN HERO SECTION */}
       <section id="home" className="relative min-h-[90vh] flex items-center justify-center pt-20">
         <div className="absolute inset-0 z-0">
-          <img src={heroImg} alt="Students" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-primary/70 mix-blend-multiply"></div>
+          <img src={heroImg} alt="Students" className="w-full h-full object-cover object-top" />
+          <div className="absolute inset-0 bg-primary/80 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
         </div>
 
         <div className="relative z-10 container mx-auto px-4 flex justify-center">
@@ -173,30 +187,109 @@ export default function Home() {
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
-            className="max-w-4xl w-full bg-white/10 backdrop-blur-md border border-white/20 p-8 md:p-16 rounded-[2rem] shadow-2xl text-center"
+            className="max-w-4xl w-full bg-white/5 backdrop-blur-md border border-white/10 p-8 md:p-16 rounded-[2rem] shadow-2xl text-center"
           >
-            <motion.div variants={fadeInUp} className="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold tracking-wider uppercase mb-6">
-              Your Journey Begins Here
+            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold tracking-wider uppercase mb-6">
+              <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+              Premium Study Abroad Consultancy
             </motion.div>
             <motion.h1 variants={fadeInUp} className="text-4xl md:text-6xl lg:text-7xl font-serif text-white mb-6 leading-[1.1]">
               Empowering Dreams,<br />
               <span className="text-accent italic">Connecting Futures</span>
             </motion.h1>
             <motion.p variants={fadeInUp} className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">
-              We provide world-class educational guidance and premium support for your successful transition to Germany.
+              We provide world-class educational guidance and premium support for your successful transition to leading global universities.
             </motion.p>
-            <motion.div variants={fadeInUp}>
+            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row justify-center gap-4">
               <Button className="bg-accent hover:bg-accent/90 text-primary font-bold rounded-full px-8 py-6 text-lg transition-all hover:scale-105 shadow-[0_0_40px_-10px_rgba(255,204,153,0.5)]">
                 Start Your Journey
                 <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+              <Button variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/30 rounded-full px-8 py-6 text-lg transition-all backdrop-blur-sm">
+                Explore Programmes
               </Button>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
+      {/* GRAMMAR TOPICS / LEARNING (Card-based & Horizontal Scroll Table) */}
+      <section id="language-topics" className="py-24 bg-background relative z-20">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-serif text-primary mb-4">Essential Language Mastery</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Our comprehensive German language training covers foundational grammar topics to ensure you are fully prepared for your academic journey.
+            </p>
+          </motion.div>
+
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
+          >
+            {grammarTopics.map((topic, idx) => (
+              <motion.div key={idx} variants={fadeInUp}>
+                <Card className="h-full border-border/50 shadow-sm hover:shadow-md transition-shadow rounded-2xl bg-white">
+                  <CardContent className="p-6">
+                    <div className="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center mb-4 text-primary font-serif font-bold text-xl">
+                      {idx + 1}
+                    </div>
+                    <h3 className="font-serif font-bold text-xl text-primary mb-2">{topic.rule}</h3>
+                    <p className="text-sm text-muted-foreground">Master the rules of {topic.rule.toLowerCase()} cases for flawless sentence construction.</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Horizontally scrolling table for mobile optimization */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="bg-white rounded-2xl shadow-sm border border-border/50 overflow-hidden"
+          >
+            <div className="p-6 border-b border-border/50 bg-slate-50/50">
+              <h3 className="font-serif font-bold text-lg text-primary">Adjective & Adverb Quick Reference</h3>
+            </div>
+            <div className="w-full overflow-x-auto">
+              <table className="w-full text-left border-collapse min-w-[600px]">
+                <thead>
+                  <tr className="bg-primary text-white">
+                    <th className="p-4 font-semibold text-sm">Grammar Case</th>
+                    <th className="p-4 font-semibold text-sm">Definite Articles</th>
+                    <th className="p-4 font-semibold text-sm">Personal Pronouns</th>
+                    <th className="p-4 font-semibold text-sm">Primary Usage</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {grammarTopics.map((row, idx) => (
+                    <tr key={idx} className="border-b border-border/50 hover:bg-slate-50/50 transition-colors">
+                      <td className="p-4 font-medium text-primary">{row.rule}</td>
+                      <td className="p-4 text-muted-foreground">{row.article}</td>
+                      <td className="p-4 text-muted-foreground">{row.pronoun}</td>
+                      <td className="p-4 text-muted-foreground">{row.usage}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* BENTO BOX SERVICES */}
-      <section className="py-24 md:py-32 px-4 container mx-auto max-w-6xl relative z-20 -mt-16">
+      <section className="py-24 md:py-32 px-4 container mx-auto max-w-6xl">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -244,9 +337,9 @@ export default function Home() {
       </section>
 
       {/* ORGANIC FEATURE HIGHLIGHT (Why Choose Us) */}
-      <section className="py-24 overflow-hidden relative">
+      <section className="py-24 overflow-hidden relative bg-slate-50">
         {/* Organic Background Shape */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] md:w-[80%] aspect-[2/1] bg-secondary/20 rounded-[100%] blur-[80px] -z-10"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] md:w-[80%] aspect-[2/1] bg-accent/10 rounded-[100%] blur-[80px] -z-10"></div>
         
         <div className="container mx-auto px-4 max-w-4xl text-center relative z-10">
           <motion.div
@@ -254,13 +347,13 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="bg-white/60 backdrop-blur-3xl border border-white p-10 md:p-20 rounded-[3rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)]"
+            className="bg-white/80 backdrop-blur-3xl border border-white p-10 md:p-20 rounded-[3rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)]"
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-primary mb-8 leading-tight">
               Why <span className="italic text-accent">Choose Us?</span>
             </h2>
             <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-10">
-              At Frankfuter Overseas, we believe in providing personalized guidance tailored to your unique aspirations. Our expert counselors have deep insights into the German education system and lifestyle, ensuring a seamless transition from your home country to your dream university.
+              At Frankfuter Overseas, we believe in providing personalized guidance tailored to your unique aspirations. Our expert counselors have deep insights into the international education system and lifestyle, ensuring a seamless transition from your home country to your dream university.
             </p>
             <Button variant="outline" className="rounded-full px-8 py-6 border-primary text-primary hover:bg-primary hover:text-white transition-all font-bold text-base">
               Learn more about our process
@@ -270,7 +363,7 @@ export default function Home() {
       </section>
 
       {/* PILL-STYLE PROGRAMMES */}
-      <section id="our-programmes" className="py-24 bg-white">
+      <section id="programmes" className="py-24 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
           <motion.div 
             initial="hidden"
@@ -281,7 +374,7 @@ export default function Home() {
           >
             <h2 className="text-4xl md:text-5xl font-serif text-primary mb-6">Our Programmes</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              Explore tailored opportunities designed to accelerate your career and academic journey in Germany.
+              Explore tailored opportunities designed to accelerate your career and academic journey abroad.
             </p>
           </motion.div>
 
@@ -294,7 +387,7 @@ export default function Home() {
           >
             {programmes.map((prog, idx) => (
               <motion.div key={idx} variants={fadeInUp}>
-                <a href="#" className="group relative block overflow-hidden rounded-full bg-background border border-border px-8 py-5 transition-all hover:border-accent hover:shadow-lg hover:-translate-y-1">
+                <a href="#" className="group relative block overflow-hidden rounded-full bg-slate-50 border border-border px-8 py-5 transition-all hover:border-accent hover:shadow-lg hover:-translate-y-1">
                   <div className="absolute inset-0 bg-accent/10 translate-y-full transition-transform group-hover:translate-y-0"></div>
                   <div className="relative flex items-center gap-3">
                     <span className="font-serif text-xl font-bold text-primary group-hover:text-primary transition-colors">{prog}</span>
@@ -307,8 +400,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* MODERN SUCCESS STORIES (Social Proof) */}
-      <section className="py-24 md:py-32 bg-primary text-white relative overflow-hidden">
+      {/* TESTIMONIALS (Circular Frames Carousel) */}
+      <section id="testimonials" className="py-24 md:py-32 bg-primary text-white relative overflow-hidden">
         {/* Subtle background pattern */}
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
         
@@ -322,7 +415,7 @@ export default function Home() {
           >
             <div className="max-w-2xl">
               <h2 className="text-4xl md:text-5xl font-serif mb-6">Success <span className="italic text-accent">Stories</span></h2>
-              <p className="text-white/70 text-lg">Join the hundreds of students who have successfully transitioned to their dream careers through our guided programs.</p>
+              <p className="text-white/70 text-lg">Hear from students who have successfully achieved their dreams and secured their visas with our comprehensive support.</p>
             </div>
             <div className="flex gap-4">
               <Button 
@@ -344,34 +437,41 @@ export default function Home() {
             </div>
           </motion.div>
 
-          <div className="overflow-hidden -mx-4 px-4" ref={emblaRef}>
+          <div className="overflow-hidden -mx-4 px-4 py-8" ref={emblaRef}>
             <div className="flex">
               {successStories.map((story, idx) => (
-                <div key={idx} className="flex-[0_0_100%] min-w-0 md:flex-[0_0_40%] lg:flex-[0_0_30%] pl-6">
+                <div key={idx} className="flex-[0_0_100%] min-w-0 md:flex-[0_0_50%] lg:flex-[0_0_33.33%] pl-6">
                   <motion.div 
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.1 }}
-                    className="group rounded-[2rem] overflow-hidden bg-white/5 border border-white/10 hover:border-accent/50 transition-colors"
+                    className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 relative hover:bg-white/10 transition-colors h-full flex flex-col items-center text-center"
                   >
-                    <div className="aspect-[4/5] overflow-hidden relative">
-                      <img 
-                        src={story.img} 
-                        alt={story.name} 
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent"></div>
-                      <div className="absolute bottom-0 left-0 p-8 w-full">
-                        <div className="flex items-center gap-2 mb-3">
-                          <span className="flex h-2 w-2 rounded-full bg-accent relative">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-                          </span>
-                          <span className="text-xs font-bold tracking-wider uppercase text-white/90">Visa Approved</span>
-                        </div>
-                        <h4 className="font-serif font-bold text-3xl text-white mb-1">{story.name}</h4>
-                        <p className="text-accent font-medium">{story.details}</p>
+                    <div className="absolute -top-10">
+                      <div className="w-24 h-24 rounded-full p-1 bg-gradient-to-tr from-accent to-white shadow-lg">
+                         <div className="w-full h-full rounded-full overflow-hidden border-2 border-primary bg-primary flex items-center justify-center">
+                            <img 
+                              src={story.img} 
+                              alt={story.name} 
+                              className="w-[150%] h-[150%] object-cover object-center"
+                            />
+                         </div>
                       </div>
+                    </div>
+                    
+                    <div className="pt-16 flex-1 flex flex-col">
+                      <div className="flex items-center justify-center gap-2 mb-4">
+                        <span className="flex h-2 w-2 rounded-full bg-green-400 relative"></span>
+                        <span className="text-xs font-bold tracking-wider uppercase text-green-400">Visa Approved</span>
+                      </div>
+                      
+                      <h4 className="font-serif font-bold text-2xl text-white mb-2">{story.name}</h4>
+                      <p className="text-accent font-medium text-sm mb-6">{story.details}</p>
+                      
+                      <p className="text-white/80 italic font-serif leading-relaxed mt-auto">
+                        "Thank you Frankfuter Overseas for the seamless processing and expert guidance. 100% recommended!"
+                      </p>
                     </div>
                   </motion.div>
                 </div>
@@ -382,24 +482,34 @@ export default function Home() {
       </section>
 
       {/* PREMIUM FOOTER */}
-      <footer className="bg-background pt-24 pb-12 border-t border-border">
+      <footer className="bg-slate-50 pt-24 pb-12 border-t border-border">
         <div className="container mx-auto px-4 max-w-7xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
           <div className="lg:col-span-4 space-y-8">
-            <div className="font-serif text-3xl font-bold text-primary">
-              Frankfuter
-              <span className="block text-xs font-sans tracking-[0.2em] uppercase text-accent font-bold">
-                Overseas
-              </span>
+            <div className="flex items-center gap-3 mb-4">
+              <img 
+                src={logoImg} 
+                alt="Frankfuter Overseas Logo" 
+                className="w-12 h-12 object-cover rounded-md shadow-sm"
+              />
+              <div className="font-serif text-3xl font-bold text-primary leading-none">
+                Frankfuter
+                <span className="block text-xs font-sans tracking-[0.2em] uppercase text-accent font-bold mt-1">
+                  Overseas
+                </span>
+              </div>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
               Empowering dreams and connecting futures through world-class educational guidance and comprehensive support.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-primary hover:bg-accent hover:border-accent transition-all">
+              <a href="#" className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-primary hover:bg-accent hover:text-white hover:border-accent transition-all">
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-primary hover:bg-accent hover:border-accent transition-all">
+              <a href="#" className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-primary hover:bg-accent hover:text-white hover:border-accent transition-all">
                 <Linkedin className="w-4 h-4" />
+              </a>
+              <a href="https://wa.me/919746094794" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-primary hover:bg-[#25D366] hover:text-white hover:border-[#25D366] transition-all">
+                <MessageCircle className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -432,11 +542,15 @@ export default function Home() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-accent shrink-0" />
-                <span>+91 98765 43210</span>
+                <span>+91 974 609 4794</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-accent shrink-0" />
+                <span>+91 989 587 9746</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-accent shrink-0" />
-                <span>info@frankfuteroverseas.com</span>
+                <span>frankfuteroverseas@gmail.com</span>
               </li>
             </ul>
           </div>
@@ -447,21 +561,21 @@ export default function Home() {
             © {new Date().getFullYear()} Frankfuter Overseas. All rights reserved.
           </p>
           <div className="text-sm font-medium text-muted-foreground flex items-center gap-2">
-            Designed with <span className="text-red-500">♥</span> for your future.
+            Designed for your future.
           </div>
         </div>
       </footer>
 
       {/* SLEEK FLOATING WHATSAPP WIDGET */}
       <a
-        href="https://wa.me/1234567890"
+        href="https://wa.me/919746094794"
         target="_blank"
         rel="noreferrer"
         className="fixed bottom-6 right-6 z-50 group"
       >
         <div className="absolute right-0 bottom-0 flex items-center gap-3 bg-white pl-4 pr-1.5 py-1.5 rounded-full shadow-[0_10px_40px_-10px_rgba(0,0,0,0.2)] border border-border transition-all duration-300 hover:scale-105 hover:shadow-xl hover:border-green-500/30">
           <div className="flex flex-col items-end pr-2 overflow-hidden w-0 opacity-0 group-hover:w-auto group-hover:opacity-100 transition-all duration-300 ease-out">
-            <span className="text-xs font-bold text-primary whitespace-nowrap">Chat with us</span>
+            <span className="text-xs font-bold text-primary whitespace-nowrap">Chat with an Expert</span>
             <span className="text-[10px] text-green-500 font-medium flex items-center gap-1">
               <span className="w-1.5 h-1.5 rounded-full bg-green-500 inline-block animate-pulse"></span>
               Online
