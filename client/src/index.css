@@ -38,19 +38,19 @@
   /* Deep Navy Blue for text */
   --foreground: 235 66% 15%;
 
-  /* Deep Navy Blue #1A237E */
-  --primary: 235 66% 30%;
+  /* Deep Slate / Oxford Blue */
+  --primary: 222 47% 15%;
   --primary-foreground: 0 0% 100%;
 
-  /* Soft Peach/Apricot #FFCC99 */
-  --secondary: 30 100% 80%;
-  --secondary-foreground: 235 66% 15%;
+  /* Subtle Gold / Champagne */
+  --secondary: 43 74% 55%;
+  --secondary-foreground: 222 47% 11%;
 
   --muted: 210 40% 96%;
   --muted-foreground: 215 16% 47%;
 
-  --accent: 30 100% 80%;
-  --accent-foreground: 235 66% 15%;
+  --accent: 43 74% 55%;
+  --accent-foreground: 222 47% 11%;
 
   --card: 0 0% 100%;
   --card-foreground: 235 66% 15%;

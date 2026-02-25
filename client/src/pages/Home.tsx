@@ -34,6 +34,7 @@ import ajayImg from "@assets/ajay_1772005944182.jpg";
 import alanImg from "@assets/alan__1772005944182.jpg";
 import chandyImg from "@assets/Chandy_1772005944183.jpg";
 import logoImg from "@assets/Blue_Gradient_Modern_Professional_Service_Health_Instagram_Pos_1772005944183.jpg";
+import studyAbroadBanner from "@assets/studyabroad-banner_1772016186712.jpg";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -225,9 +226,9 @@ export default function Home() {
       {/* MODERN HERO SECTION */}
       <section id="home" className="relative min-h-[90vh] flex items-center justify-center pt-20">
         <div className="absolute inset-0 z-0">
-          <img src={heroImg} alt="Students" className="w-full h-full object-cover object-center" />
-          <div className="absolute inset-0 bg-primary/85 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-primary/30 to-transparent"></div>
+          <img src={studyAbroadBanner} alt="Students" className="w-full h-full object-cover object-center opacity-40 grayscale-[30%]" />
+          <div className="absolute inset-0 bg-primary/95 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-primary/80 to-primary/40"></div>
         </div>
 
         <div className="relative z-10 container mx-auto px-4 flex justify-center">
