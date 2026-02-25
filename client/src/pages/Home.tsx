@@ -19,7 +19,7 @@ import {
   Plane,
   Globe,
   MessageCircle,
-  MessageCircleQuestion
+  Users
 } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 
@@ -92,11 +92,11 @@ export default function Home() {
     { name: "Leya Chandy", details: "Summer Intake 2025", img: chandyImg },
   ];
 
-  const grammarTopics = [
-    { rule: "Nominative", article: "der, die, das, die", pronoun: "ich, du, er/sie/es", usage: "Subject of the sentence" },
-    { rule: "Accusative", article: "den, die, das, die", pronoun: "mich, dich, ihn/sie/es", usage: "Direct object, motion" },
-    { rule: "Dative", article: "dem, der, dem, den", pronoun: "mir, dir, ihm/ihr/ihm", usage: "Indirect object, static" },
-    { rule: "Genitive", article: "des, der, des, der", pronoun: "meiner, deiner, seiner", usage: "Possession, belonging" },
+  const navLinks = [
+    { name: "Home", href: "#home", external: false },
+    { name: "Language Academy", href: "https://www.instagram.com/neospeak_akademie/?hl=en", external: true },
+    { name: "Programmes", href: "#programmes", external: false },
+    { name: "Testimonials", href: "#testimonials", external: false },
   ];
 
   return (
@@ -105,7 +105,7 @@ export default function Home() {
       <header
         className={`fixed top-0 w-full z-50 transition-all duration-500 border-b border-transparent ${
           isScrolled
-            ? "bg-white/80 backdrop-blur-xl shadow-sm border-white/20 py-3"
+            ? "bg-white/90 backdrop-blur-xl shadow-sm border-white/20 py-3"
             : "bg-transparent py-5"
         }`}
       >
@@ -125,24 +125,26 @@ export default function Home() {
           </div>
 
           <nav className="hidden md:flex items-center gap-10">
-            {["Home", "Language Topics", "Programmes", "Testimonials"].map((item) => (
+            {navLinks.map((item) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase().replace(" ", "-")}`}
+                key={item.name}
+                href={item.href}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noreferrer" : undefined}
                 className={`font-medium text-sm transition-all hover:text-accent relative group ${
                   isScrolled ? "text-foreground" : "text-white/90"
                 }`}
               >
-                {item}
+                {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
               </a>
             ))}
           </nav>
 
           <div className="hidden md:flex items-center gap-6">
-            <Button className="bg-accent hover:bg-accent/90 text-primary font-bold rounded-full px-7 shadow-sm transition-transform hover:scale-105">
+            <a href="#contact" className="bg-accent hover:bg-accent/90 text-primary font-bold rounded-full px-7 py-2.5 shadow-sm transition-transform hover:scale-105 inline-block">
               Consult an Expert
-            </Button>
+            </a>
           </div>
 
           <button
@@ -159,17 +161,19 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             className="absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl shadow-lg flex flex-col p-6 md:hidden gap-6 border-t border-white/20"
           >
-            {["Home", "Language Topics", "Programmes", "Testimonials"].map((item) => (
+            {navLinks.map((item) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase().replace(" ", "-")}`}
+                key={item.name}
+                href={item.href}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noreferrer" : undefined}
                 className="font-medium text-lg text-foreground border-b border-border/50 pb-4"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                {item}
+                {item.name}
               </a>
             ))}
-            <Button className="w-full bg-accent text-primary font-bold rounded-full py-6 text-lg shadow-sm">Consult an Expert</Button>
+            <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="w-full bg-accent text-primary font-bold rounded-full py-4 text-lg shadow-sm text-center">Consult an Expert</a>
           </motion.div>
         )}
       </header>
@@ -201,95 +205,20 @@ export default function Home() {
               We provide world-class educational guidance and premium support for your successful transition to leading global universities.
             </motion.p>
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button className="bg-accent hover:bg-accent/90 text-primary font-bold rounded-full px-8 py-6 text-lg transition-all hover:scale-105 shadow-[0_0_40px_-10px_rgba(255,204,153,0.5)]">
+              <a href="#programmes" className="bg-accent hover:bg-accent/90 text-primary font-bold rounded-full px-8 py-4 text-lg transition-all hover:scale-105 shadow-[0_0_40px_-10px_rgba(255,204,153,0.5)] flex items-center justify-center">
                 Start Your Journey
                 <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-              <Button variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/30 rounded-full px-8 py-6 text-lg transition-all backdrop-blur-sm">
-                Explore Programmes
-              </Button>
+              </a>
+              <a href="#contact" className="bg-white/10 hover:bg-white/20 text-white border border-white/30 rounded-full px-8 py-4 text-lg transition-all backdrop-blur-sm flex items-center justify-center">
+                Contact Us
+              </a>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* GRAMMAR TOPICS / LEARNING (Card-based & Horizontal Scroll Table) */}
-      <section id="language-topics" className="py-24 bg-background relative z-20">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-serif text-primary mb-4">Essential Language Mastery</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Our comprehensive German language training covers foundational grammar topics to ensure you are fully prepared for your academic journey.
-            </p>
-          </motion.div>
-
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
-          >
-            {grammarTopics.map((topic, idx) => (
-              <motion.div key={idx} variants={fadeInUp}>
-                <Card className="h-full border-border/50 shadow-sm hover:shadow-md transition-shadow rounded-2xl bg-white">
-                  <CardContent className="p-6">
-                    <div className="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center mb-4 text-primary font-serif font-bold text-xl">
-                      {idx + 1}
-                    </div>
-                    <h3 className="font-serif font-bold text-xl text-primary mb-2">{topic.rule}</h3>
-                    <p className="text-sm text-muted-foreground">Master the rules of {topic.rule.toLowerCase()} cases for flawless sentence construction.</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Horizontally scrolling table for mobile optimization */}
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="bg-white rounded-2xl shadow-sm border border-border/50 overflow-hidden"
-          >
-            <div className="p-6 border-b border-border/50 bg-slate-50/50">
-              <h3 className="font-serif font-bold text-lg text-primary">Adjective & Adverb Quick Reference</h3>
-            </div>
-            <div className="w-full overflow-x-auto">
-              <table className="w-full text-left border-collapse min-w-[600px]">
-                <thead>
-                  <tr className="bg-primary text-white">
-                    <th className="p-4 font-semibold text-sm">Grammar Case</th>
-                    <th className="p-4 font-semibold text-sm">Definite Articles</th>
-                    <th className="p-4 font-semibold text-sm">Personal Pronouns</th>
-                    <th className="p-4 font-semibold text-sm">Primary Usage</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {grammarTopics.map((row, idx) => (
-                    <tr key={idx} className="border-b border-border/50 hover:bg-slate-50/50 transition-colors">
-                      <td className="p-4 font-medium text-primary">{row.rule}</td>
-                      <td className="p-4 text-muted-foreground">{row.article}</td>
-                      <td className="p-4 text-muted-foreground">{row.pronoun}</td>
-                      <td className="p-4 text-muted-foreground">{row.usage}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* BENTO BOX SERVICES */}
-      <section className="py-24 md:py-32 px-4 container mx-auto max-w-6xl">
+      <section className="py-24 md:py-32 px-4 container mx-auto max-w-6xl relative z-20 -mt-16">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -328,18 +257,86 @@ export default function Home() {
               <p className="text-white/70 text-lg max-w-xl">Connect with thousands of students who have successfully built their careers abroad.</p>
             </div>
             <div className="relative z-10">
-              <Button className="bg-white text-primary hover:bg-accent hover:text-primary font-bold rounded-full px-8 py-6 transition-all shadow-xl">
+              <a href="#paddy-boys" className="inline-block bg-white text-primary hover:bg-accent hover:text-primary font-bold rounded-full px-8 py-4 transition-all shadow-xl">
                 Join Community
-              </Button>
+              </a>
             </div>
           </motion.div>
         </motion.div>
       </section>
 
+      {/* PADDY BOYS COMMUNITY SECTION */}
+      <section id="paddy-boys" className="py-24 bg-slate-50 relative overflow-hidden">
+        {/* Decorative background element */}
+        <div className="absolute top-0 right-0 w-[50%] h-full bg-accent/5 rounded-l-[100px] blur-3xl -z-10"></div>
+        
+        <div className="container mx-auto px-4 max-w-5xl">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="bg-white rounded-3xl p-10 md:p-16 shadow-xl border border-border/50 relative overflow-hidden"
+          >
+            <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary/5 rounded-full blur-2xl"></div>
+            
+            <div className="relative z-10 flex flex-col md:flex-row gap-12 items-center">
+              <div className="md:w-1/2">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-secondary/30 text-primary mb-6">
+                  <Users className="w-8 h-8" />
+                </div>
+                <h2 className="text-4xl md:text-5xl font-serif text-primary mb-4">
+                  Paddy <span className="italic text-accent">Boys</span>
+                </h2>
+                <h3 className="text-xl font-bold text-foreground mb-6">
+                  More than just a consultancy — we’re a family abroad.
+                </h3>
+                <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                  Our exclusive student network, Paddy Boys, is a vibrant community that offers everything you need to feel at home:
+                </p>
+                <ul className="space-y-4 mb-8">
+                  {[
+                    "Peer support and guidance",
+                    "Cultural integration activities",
+                    "Sports events and meetups",
+                    "Local help in settling down"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 text-foreground font-medium">
+                      <span className="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center text-primary shrink-0">
+                        <ArrowRight className="w-3 h-3" />
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <a href="#contact" className="inline-block bg-primary text-white hover:bg-primary/90 font-bold rounded-full px-8 py-4 transition-all shadow-md">
+                  Contact Us
+                </a>
+              </div>
+              
+              <div className="md:w-1/2 w-full h-full min-h-[300px] bg-muted/30 rounded-2xl border border-border/50 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-accent/10"></div>
+                {/* Decorative representation of community */}
+                <div className="grid grid-cols-2 gap-4 p-8 w-full relative z-10">
+                  <div className="space-y-4">
+                    <div className="h-32 bg-white rounded-2xl shadow-sm border border-border/50 animate-pulse"></div>
+                    <div className="h-48 bg-white/80 rounded-2xl shadow-sm border border-border/50"></div>
+                  </div>
+                  <div className="space-y-4 pt-8">
+                    <div className="h-40 bg-white/90 rounded-2xl shadow-sm border border-border/50"></div>
+                    <div className="h-32 bg-white/60 rounded-2xl shadow-sm border border-border/50"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* ORGANIC FEATURE HIGHLIGHT (Why Choose Us) */}
-      <section className="py-24 overflow-hidden relative bg-slate-50">
+      <section className="py-24 overflow-hidden relative bg-white">
         {/* Organic Background Shape */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] md:w-[80%] aspect-[2/1] bg-accent/10 rounded-[100%] blur-[80px] -z-10"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] md:w-[80%] aspect-[2/1] bg-secondary/20 rounded-[100%] blur-[80px] -z-10"></div>
         
         <div className="container mx-auto px-4 max-w-4xl text-center relative z-10">
           <motion.div
@@ -347,7 +344,7 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="bg-white/80 backdrop-blur-3xl border border-white p-10 md:p-20 rounded-[3rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)]"
+            className="bg-white/60 backdrop-blur-3xl border border-white p-10 md:p-20 rounded-[3rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)]"
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-primary mb-8 leading-tight">
               Why <span className="italic text-accent">Choose Us?</span>
@@ -355,15 +352,15 @@ export default function Home() {
             <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-10">
               At Frankfuter Overseas, we believe in providing personalized guidance tailored to your unique aspirations. Our expert counselors have deep insights into the international education system and lifestyle, ensuring a seamless transition from your home country to your dream university.
             </p>
-            <Button variant="outline" className="rounded-full px-8 py-6 border-primary text-primary hover:bg-primary hover:text-white transition-all font-bold text-base">
+            <a href="#contact" className="inline-block rounded-full px-8 py-4 border border-primary text-primary hover:bg-primary hover:text-white transition-all font-bold text-base">
               Learn more about our process
-            </Button>
+            </a>
           </motion.div>
         </div>
       </section>
 
       {/* PILL-STYLE PROGRAMMES */}
-      <section id="programmes" className="py-24 bg-white">
+      <section id="programmes" className="py-24 bg-slate-50">
         <div className="container mx-auto px-4 max-w-6xl">
           <motion.div 
             initial="hidden"
@@ -387,7 +384,7 @@ export default function Home() {
           >
             {programmes.map((prog, idx) => (
               <motion.div key={idx} variants={fadeInUp}>
-                <a href="#" className="group relative block overflow-hidden rounded-full bg-slate-50 border border-border px-8 py-5 transition-all hover:border-accent hover:shadow-lg hover:-translate-y-1">
+                <a href="#" className="group relative block overflow-hidden rounded-full bg-white border border-border px-8 py-5 transition-all hover:border-accent hover:shadow-lg hover:-translate-y-1">
                   <div className="absolute inset-0 bg-accent/10 translate-y-full transition-transform group-hover:translate-y-0"></div>
                   <div className="relative flex items-center gap-3">
                     <span className="font-serif text-xl font-bold text-primary group-hover:text-primary transition-colors">{prog}</span>
@@ -400,7 +397,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIALS (Circular Frames Carousel) */}
+      {/* TESTIMONIALS (Large Rectangular Cards) */}
       <section id="testimonials" className="py-24 md:py-32 bg-primary text-white relative overflow-hidden">
         {/* Subtle background pattern */}
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
@@ -440,36 +437,34 @@ export default function Home() {
           <div className="overflow-hidden -mx-4 px-4 py-8" ref={emblaRef}>
             <div className="flex">
               {successStories.map((story, idx) => (
-                <div key={idx} className="flex-[0_0_100%] min-w-0 md:flex-[0_0_50%] lg:flex-[0_0_33.33%] pl-6">
+                <div key={idx} className="flex-[0_0_100%] min-w-0 md:flex-[0_0_60%] lg:flex-[0_0_40%] pl-6">
                   <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.1 }}
-                    className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 relative hover:bg-white/10 transition-colors h-full flex flex-col items-center text-center"
+                    className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all h-full flex flex-col group"
                   >
-                    <div className="absolute -top-10">
-                      <div className="w-24 h-24 rounded-full p-1 bg-gradient-to-tr from-accent to-white shadow-lg">
-                         <div className="w-full h-full rounded-full overflow-hidden border-2 border-primary bg-primary flex items-center justify-center">
-                            <img 
-                              src={story.img} 
-                              alt={story.name} 
-                              className="w-[150%] h-[150%] object-cover object-center"
-                            />
-                         </div>
-                      </div>
+                    <div className="w-full relative bg-slate-100">
+                      <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors z-10 pointer-events-none"></div>
+                      <img 
+                        src={story.img} 
+                        alt={story.name} 
+                        className="w-full object-contain object-top max-h-[400px] bg-slate-100"
+                        style={{ aspectRatio: '1/1' }}
+                      />
                     </div>
                     
-                    <div className="pt-16 flex-1 flex flex-col">
-                      <div className="flex items-center justify-center gap-2 mb-4">
-                        <span className="flex h-2 w-2 rounded-full bg-green-400 relative"></span>
-                        <span className="text-xs font-bold tracking-wider uppercase text-green-400">Visa Approved</span>
+                    <div className="p-8 flex-1 flex flex-col bg-white text-foreground">
+                      <div className="flex items-center justify-start gap-2 mb-4">
+                        <span className="flex h-2 w-2 rounded-full bg-green-500 relative"></span>
+                        <span className="text-xs font-bold tracking-wider uppercase text-green-600">Visa Approved</span>
                       </div>
                       
-                      <h4 className="font-serif font-bold text-2xl text-white mb-2">{story.name}</h4>
-                      <p className="text-accent font-medium text-sm mb-6">{story.details}</p>
+                      <h4 className="font-serif font-bold text-3xl text-primary mb-2">{story.name}</h4>
+                      <p className="text-accent-foreground font-semibold text-sm mb-6">{story.details}</p>
                       
-                      <p className="text-white/80 italic font-serif leading-relaxed mt-auto">
+                      <p className="text-muted-foreground italic font-serif leading-relaxed mt-auto">
                         "Thank you Frankfuter Overseas for the seamless processing and expert guidance. 100% recommended!"
                       </p>
                     </div>
@@ -481,8 +476,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PREMIUM FOOTER */}
-      <footer className="bg-slate-50 pt-24 pb-12 border-t border-border">
+      {/* PREMIUM FOOTER & CONTACT */}
+      <footer id="contact" className="bg-white pt-24 pb-12 border-t border-border">
         <div className="container mx-auto px-4 max-w-7xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
           <div className="lg:col-span-4 space-y-8">
             <div className="flex items-center gap-3 mb-4">
@@ -502,13 +497,13 @@ export default function Home() {
               Empowering dreams and connecting futures through world-class educational guidance and comprehensive support.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-primary hover:bg-accent hover:text-white hover:border-accent transition-all">
+              <a href="https://www.instagram.com/frankfuter_overseas/?hl=en" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-primary hover:bg-accent hover:text-white hover:border-accent transition-all">
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-primary hover:bg-accent hover:text-white hover:border-accent transition-all">
+              <a href="https://www.linkedin.com/company/frankfuter-overseas/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-primary hover:bg-accent hover:text-white hover:border-accent transition-all">
                 <Linkedin className="w-4 h-4" />
               </a>
-              <a href="https://wa.me/919746094794" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-primary hover:bg-[#25D366] hover:text-white hover:border-[#25D366] transition-all">
+              <a href="https://wa.me/919207005641" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-primary hover:bg-[#25D366] hover:text-white hover:border-[#25D366] transition-all">
                 <MessageCircle className="w-4 h-4" />
               </a>
             </div>
@@ -517,10 +512,10 @@ export default function Home() {
           <div className="lg:col-span-2 lg:col-start-6">
             <h4 className="font-serif text-lg font-bold text-primary mb-6">Company</h4>
             <ul className="space-y-4 text-sm font-medium text-muted-foreground">
-              <li><a href="#" className="hover:text-accent transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Our Programmes</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Success Stories</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Contact</a></li>
+              <li><a href="#home" className="hover:text-accent transition-colors">About Us</a></li>
+              <li><a href="#programmes" className="hover:text-accent transition-colors">Our Programmes</a></li>
+              <li><a href="#testimonials" className="hover:text-accent transition-colors">Success Stories</a></li>
+              <li><a href="#paddy-boys" className="hover:text-accent transition-colors">Paddy Boys Community</a></li>
             </ul>
           </div>
 
@@ -533,12 +528,17 @@ export default function Home() {
             </ul>
           </div>
 
-          <div className="lg:col-span-3">
-            <h4 className="font-serif text-lg font-bold text-primary mb-6">Get in Touch</h4>
+          <div className="lg:col-span-4">
+            <h4 className="font-serif text-lg font-bold text-primary mb-6">Contact Us</h4>
             <ul className="space-y-4 text-sm text-muted-foreground">
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-accent shrink-0" />
-                <span>Thiruvalla, Kerala, India</span>
+                <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+                <span className="leading-relaxed">
+                  Door No: 1, Kurisummootil Building,<br/>
+                  71/4, North, Muthoor,<br/>
+                  Thiruvalla, Kerala 689107,<br/>
+                  India
+                </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-accent shrink-0" />
@@ -546,7 +546,7 @@ export default function Home() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-accent shrink-0" />
-                <span>+91 989 587 9746</span>
+                <span>+91 920 700 5641</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-accent shrink-0" />
@@ -568,7 +568,7 @@ export default function Home() {
 
       {/* SLEEK FLOATING WHATSAPP WIDGET */}
       <a
-        href="https://wa.me/919746094794"
+        href="https://wa.me/919207005641"
         target="_blank"
         rel="noreferrer"
         className="fixed bottom-6 right-6 z-50 group"
