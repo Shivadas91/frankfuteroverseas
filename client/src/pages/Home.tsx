@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { motion } from "framer-motion";
 import {
   Instagram,
@@ -19,7 +21,8 @@ import {
   Plane,
   Globe,
   MessageCircle,
-  Users
+  Users,
+  CheckCircle2
 } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 
@@ -70,19 +73,38 @@ export default function Home() {
   }, []);
 
   const services = [
-    { title: "Study Abroad Guidance", description: "Expert counseling for your academic journey.", icon: <GraduationCap className="w-8 h-8" />, span: "col-span-1 md:col-span-2" },
-    { title: "German Language", description: "Master the language with certified trainers.", icon: <Languages className="w-8 h-8" />, span: "col-span-1" },
-    { title: "Accommodation", description: "Find the perfect home away from home.", icon: <HomeIcon className="w-8 h-8" />, span: "col-span-1" },
-    { title: "Visa Assistance", description: "Smooth and hassle-free visa processing.", icon: <Plane className="w-8 h-8" />, span: "col-span-1 md:col-span-2" },
-  ];
-
-  const programmes = [
-    "Bachelors",
-    "Masters",
-    "Ausbildung",
-    "FSJ",
-    "BFD",
-    "AU PAIR",
+    { 
+      title: "Study Abroad Guidance", 
+      description: "Expert counseling for your academic journey.", 
+      icon: <GraduationCap className="w-8 h-8" />, 
+      span: "col-span-1 md:col-span-2",
+      type: "dialog",
+      dialogContent: "Comprehensive guidance covering university selection, course mapping, application strategies, and scholarship opportunities tailored to your academic background and career aspirations."
+    },
+    { 
+      title: "German Language", 
+      description: "Master the language with certified trainers.", 
+      icon: <Languages className="w-8 h-8" />, 
+      span: "col-span-1",
+      type: "link",
+      href: "/language-training"
+    },
+    { 
+      title: "Accommodation", 
+      description: "Find the perfect home away from home.", 
+      icon: <HomeIcon className="w-8 h-8" />, 
+      span: "col-span-1",
+      type: "dialog",
+      dialogContent: "End-to-end support for finding secure, comfortable student housing and navigating travel logistics, flight bookings, and initial settling-in procedures."
+    },
+    { 
+      title: "Visa Assistance", 
+      description: "Smooth and hassle-free visa processing.", 
+      icon: <Plane className="w-8 h-8" />, 
+      span: "col-span-1 md:col-span-2",
+      type: "dialog",
+      dialogContent: "Navigating the student visa process can be complex. Our experts provide step-by-step guidance on document preparation, financial proofs, interview coaching, and application submission to ensure a hassle-free visa approval."
+    },
   ];
 
   const successStories = [
@@ -94,9 +116,10 @@ export default function Home() {
 
   const navLinks = [
     { name: "Home", href: "#home", external: false },
+    { name: "Our Programmes", href: "/programmes", external: false },
     { name: "Language Academy", href: "https://www.instagram.com/neospeak_akademie/?hl=en", external: true },
-    { name: "Programmes", href: "#programmes", external: false },
     { name: "Testimonials", href: "#testimonials", external: false },
+    { name: "Contact Us", href: "#contact", external: false },
   ];
 
   return (
@@ -124,31 +147,41 @@ export default function Home() {
             </div>
           </div>
 
-          <nav className="hidden md:flex items-center gap-10">
+          <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                target={item.external ? "_blank" : undefined}
-                rel={item.external ? "noreferrer" : undefined}
-                className={`font-medium text-sm transition-all hover:text-accent relative group ${
-                  isScrolled ? "text-foreground" : "text-white/90"
-                }`}
-              >
-                {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
-              </a>
+              item.external || item.href.startsWith('#') ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noreferrer" : undefined}
+                  className={`font-medium text-sm transition-all hover:text-accent relative group ${
+                    isScrolled ? "text-foreground" : "text-white/90"
+                  }`}
+                >
+                  {item.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
+                </a>
+              ) : (
+                <Link key={item.name} href={item.href}>
+                  <a className={`font-medium text-sm transition-all hover:text-accent relative group ${
+                    isScrolled ? "text-foreground" : "text-white/90"
+                  }`}>
+                    {item.name}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
+                  </a>
+                </Link>
+              )
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-6">
-            <a href="#contact" className="bg-accent hover:bg-accent/90 text-primary font-bold rounded-full px-7 py-2.5 shadow-sm transition-transform hover:scale-105 inline-block">
-              Consult an Expert
-            </a>
+          <div className="hidden md:flex items-center gap-4">
+            <a href="https://www.instagram.com/frankfuter_overseas/?hl=en" target="_blank" rel="noreferrer" className={`transition-colors hover:text-accent ${isScrolled ? "text-primary/70" : "text-white/80"}`}><Instagram className="w-5 h-5" /></a>
+            <a href="https://www.linkedin.com/company/frankfuter-overseas/" target="_blank" rel="noreferrer" className={`transition-colors hover:text-accent ${isScrolled ? "text-primary/70" : "text-white/80"}`}><Linkedin className="w-5 h-5" /></a>
           </div>
 
           <button
-            className={`md:hidden p-2 transition-colors ${isScrolled ? "text-primary" : "text-white"}`}
+            className={`lg:hidden p-2 transition-colors ${isScrolled ? "text-primary" : "text-white"}`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X /> : <Menu />}
@@ -159,21 +192,32 @@ export default function Home() {
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl shadow-lg flex flex-col p-6 md:hidden gap-6 border-t border-white/20"
+            className="absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl shadow-lg flex flex-col p-6 lg:hidden gap-6 border-t border-white/20"
           >
             {navLinks.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                target={item.external ? "_blank" : undefined}
-                rel={item.external ? "noreferrer" : undefined}
-                className="font-medium text-lg text-foreground border-b border-border/50 pb-4"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.name}
-              </a>
+              item.external || item.href.startsWith('#') ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noreferrer" : undefined}
+                  className="font-medium text-lg text-foreground border-b border-border/50 pb-4"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link key={item.name} href={item.href}>
+                  <a className="font-medium text-lg text-foreground border-b border-border/50 pb-4" onClick={() => setMobileMenuOpen(false)}>
+                    {item.name}
+                  </a>
+                </Link>
+              )
             ))}
-            <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="w-full bg-accent text-primary font-bold rounded-full py-4 text-lg shadow-sm text-center">Consult an Expert</a>
+            <div className="flex gap-4">
+              <a href="https://www.instagram.com/frankfuter_overseas/?hl=en" target="_blank" rel="noreferrer" className="text-primary"><Instagram className="w-6 h-6" /></a>
+              <a href="https://www.linkedin.com/company/frankfuter-overseas/" target="_blank" rel="noreferrer" className="text-primary"><Linkedin className="w-6 h-6" /></a>
+            </div>
           </motion.div>
         )}
       </header>
@@ -182,8 +226,7 @@ export default function Home() {
       <section id="home" className="relative min-h-[90vh] flex items-center justify-center pt-20">
         <div className="absolute inset-0 z-0">
           <img src={heroImg} alt="Students" className="w-full h-full object-cover object-top" />
-          <div className="absolute inset-0 bg-primary/80 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-primary/70 mix-blend-multiply"></div>
         </div>
 
         <div className="relative z-10 container mx-auto px-4 flex justify-center">
@@ -191,26 +234,19 @@ export default function Home() {
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
-            className="max-w-4xl w-full bg-white/5 backdrop-blur-md border border-white/10 p-8 md:p-16 rounded-[2rem] shadow-2xl text-center"
+            className="max-w-4xl w-full text-center"
           >
-            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold tracking-wider uppercase mb-6">
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-              Premium Study Abroad Consultancy
-            </motion.div>
-            <motion.h1 variants={fadeInUp} className="text-4xl md:text-6xl lg:text-7xl font-serif text-white mb-6 leading-[1.1]">
+            <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 leading-[1.1] drop-shadow-xl">
               Empowering Dreams,<br />
               <span className="text-accent italic">Connecting Futures</span>
             </motion.h1>
-            <motion.p variants={fadeInUp} className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">
+            <motion.p variants={fadeInUp} className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light drop-shadow-md">
               We provide world-class educational guidance and premium support for your successful transition to leading global universities.
             </motion.p>
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row justify-center gap-4">
-              <a href="#programmes" className="bg-accent hover:bg-accent/90 text-primary font-bold rounded-full px-8 py-4 text-lg transition-all hover:scale-105 shadow-[0_0_40px_-10px_rgba(255,204,153,0.5)] flex items-center justify-center">
-                Start Your Journey
+              <a href="#services" className="bg-accent hover:bg-accent/90 text-primary font-bold rounded-full px-8 py-4 text-lg transition-all hover:scale-105 shadow-xl flex items-center justify-center">
+                Our Services
                 <ArrowRight className="ml-2 w-5 h-5" />
-              </a>
-              <a href="#contact" className="bg-white/10 hover:bg-white/20 text-white border border-white/30 rounded-full px-8 py-4 text-lg transition-all backdrop-blur-sm flex items-center justify-center">
-                Contact Us
               </a>
             </motion.div>
           </motion.div>
@@ -218,7 +254,7 @@ export default function Home() {
       </section>
 
       {/* BENTO BOX SERVICES */}
-      <section className="py-24 md:py-32 px-4 container mx-auto max-w-6xl relative z-20 -mt-16">
+      <section id="services" className="py-24 md:py-32 px-4 container mx-auto max-w-6xl relative z-20 -mt-16">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -226,22 +262,52 @@ export default function Home() {
           variants={staggerContainer}
           className="grid grid-cols-1 md:grid-cols-3 gap-6"
         >
-          {services.map((service, idx) => (
-            <motion.div
-              key={idx}
-              variants={fadeInUp}
-              className={`bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-border/50 hover:shadow-xl transition-all duration-500 group ${service.span}`}
-            >
-              <div className="w-16 h-16 rounded-2xl bg-secondary/30 text-primary flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-accent transition-all duration-500">
-                {service.icon}
+          {services.map((service, idx) => {
+            const ServiceCardContent = (
+              <div className="h-full flex flex-col items-start text-left">
+                <div className="w-16 h-16 rounded-2xl bg-secondary/30 text-primary flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-accent transition-all duration-500">
+                  {service.icon}
+                </div>
+                <h3 className="font-serif font-bold text-2xl text-primary mb-3">{service.title}</h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">{service.description}</p>
+                <div className="mt-auto inline-flex items-center text-sm font-bold text-primary group-hover:text-accent transition-colors">
+                  Know More <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
               </div>
-              <h3 className="font-serif font-bold text-2xl text-primary mb-3">{service.title}</h3>
-              <p className="text-muted-foreground leading-relaxed mb-6">{service.description}</p>
-              <a href="#" className="inline-flex items-center text-sm font-bold text-primary group-hover:text-accent transition-colors">
-                Explore service <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </motion.div>
-          ))}
+            );
+
+            return (
+              <motion.div
+                key={idx}
+                variants={fadeInUp}
+                className={`${service.span}`}
+              >
+                {service.type === "dialog" ? (
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <button className="w-full bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-border/50 hover:shadow-xl transition-all duration-500 group text-left cursor-pointer">
+                        {ServiceCardContent}
+                      </button>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-md bg-white rounded-2xl">
+                      <DialogHeader>
+                        <DialogTitle className="font-serif text-2xl text-primary">{service.title}</DialogTitle>
+                        <DialogDescription className="text-base text-foreground leading-relaxed pt-4">
+                          {service.dialogContent}
+                        </DialogDescription>
+                      </DialogHeader>
+                    </DialogContent>
+                  </Dialog>
+                ) : (
+                  <Link href={service.href!}>
+                    <a className="block w-full h-full bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-border/50 hover:shadow-xl transition-all duration-500 group">
+                      {ServiceCardContent}
+                    </a>
+                  </Link>
+                )}
+              </motion.div>
+            );
+          })}
           
           <motion.div 
             variants={fadeInUp}
@@ -257,84 +323,36 @@ export default function Home() {
               <p className="text-white/70 text-lg max-w-xl">Connect with thousands of students who have successfully built their careers abroad.</p>
             </div>
             <div className="relative z-10">
-              <a href="#paddy-boys" className="inline-block bg-white text-primary hover:bg-accent hover:text-primary font-bold rounded-full px-8 py-4 transition-all shadow-xl">
-                Join Community
-              </a>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <button className="bg-white text-primary hover:bg-accent hover:text-primary font-bold rounded-full px-8 py-4 transition-all shadow-xl">
+                    Join Community
+                  </button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-md bg-white rounded-2xl">
+                  <DialogHeader>
+                    <DialogTitle className="font-serif text-3xl text-primary mb-2">Paddy Boys</DialogTitle>
+                    <DialogDescription className="text-base text-foreground leading-relaxed pt-2">
+                      Frankfuter Overseas is more than just a consultancy — we’re a family abroad. Our exclusive student network, <span className="font-bold text-primary">Paddy Boys</span>, is a vibrant community that offers:
+                      <ul className="mt-4 space-y-3">
+                        {["Peer support and guidance", "Cultural integration activities", "Sports events and meetups", "Local help in settling down"].map(item => (
+                          <li key={item} className="flex items-center gap-2">
+                            <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
+                            <span className="font-medium">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </DialogDescription>
+                  </DialogHeader>
+                </DialogContent>
+              </Dialog>
             </div>
           </motion.div>
         </motion.div>
       </section>
 
-      {/* PADDY BOYS COMMUNITY SECTION */}
-      <section id="paddy-boys" className="py-24 bg-slate-50 relative overflow-hidden">
-        {/* Decorative background element */}
-        <div className="absolute top-0 right-0 w-[50%] h-full bg-accent/5 rounded-l-[100px] blur-3xl -z-10"></div>
-        
-        <div className="container mx-auto px-4 max-w-5xl">
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="bg-white rounded-3xl p-10 md:p-16 shadow-xl border border-border/50 relative overflow-hidden"
-          >
-            <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary/5 rounded-full blur-2xl"></div>
-            
-            <div className="relative z-10 flex flex-col md:flex-row gap-12 items-center">
-              <div className="md:w-1/2">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-secondary/30 text-primary mb-6">
-                  <Users className="w-8 h-8" />
-                </div>
-                <h2 className="text-4xl md:text-5xl font-serif text-primary mb-4">
-                  Paddy <span className="italic text-accent">Boys</span>
-                </h2>
-                <h3 className="text-xl font-bold text-foreground mb-6">
-                  More than just a consultancy — we’re a family abroad.
-                </h3>
-                <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                  Our exclusive student network, Paddy Boys, is a vibrant community that offers everything you need to feel at home:
-                </p>
-                <ul className="space-y-4 mb-8">
-                  {[
-                    "Peer support and guidance",
-                    "Cultural integration activities",
-                    "Sports events and meetups",
-                    "Local help in settling down"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-foreground font-medium">
-                      <span className="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center text-primary shrink-0">
-                        <ArrowRight className="w-3 h-3" />
-                      </span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <a href="#contact" className="inline-block bg-primary text-white hover:bg-primary/90 font-bold rounded-full px-8 py-4 transition-all shadow-md">
-                  Contact Us
-                </a>
-              </div>
-              
-              <div className="md:w-1/2 w-full h-full min-h-[300px] bg-muted/30 rounded-2xl border border-border/50 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-accent/10"></div>
-                {/* Decorative representation of community */}
-                <div className="grid grid-cols-2 gap-4 p-8 w-full relative z-10">
-                  <div className="space-y-4">
-                    <div className="h-32 bg-white rounded-2xl shadow-sm border border-border/50 animate-pulse"></div>
-                    <div className="h-48 bg-white/80 rounded-2xl shadow-sm border border-border/50"></div>
-                  </div>
-                  <div className="space-y-4 pt-8">
-                    <div className="h-40 bg-white/90 rounded-2xl shadow-sm border border-border/50"></div>
-                    <div className="h-32 bg-white/60 rounded-2xl shadow-sm border border-border/50"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* ORGANIC FEATURE HIGHLIGHT (Why Choose Us) */}
-      <section className="py-24 overflow-hidden relative bg-white">
+      <section className="py-24 overflow-hidden relative bg-slate-50">
         {/* Organic Background Shape */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] md:w-[80%] aspect-[2/1] bg-secondary/20 rounded-[100%] blur-[80px] -z-10"></div>
         
@@ -344,7 +362,7 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="bg-white/60 backdrop-blur-3xl border border-white p-10 md:p-20 rounded-[3rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)]"
+            className="bg-white/80 backdrop-blur-3xl border border-white p-10 md:p-20 rounded-[3rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)]"
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-primary mb-8 leading-tight">
               Why <span className="italic text-accent">Choose Us?</span>
@@ -355,44 +373,6 @@ export default function Home() {
             <a href="#contact" className="inline-block rounded-full px-8 py-4 border border-primary text-primary hover:bg-primary hover:text-white transition-all font-bold text-base">
               Learn more about our process
             </a>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* PILL-STYLE PROGRAMMES */}
-      <section id="programmes" className="py-24 bg-slate-50">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-serif text-primary mb-6">Our Programmes</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              Explore tailored opportunities designed to accelerate your career and academic journey abroad.
-            </p>
-          </motion.div>
-
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="flex flex-wrap justify-center gap-4 md:gap-6"
-          >
-            {programmes.map((prog, idx) => (
-              <motion.div key={idx} variants={fadeInUp}>
-                <a href="#" className="group relative block overflow-hidden rounded-full bg-white border border-border px-8 py-5 transition-all hover:border-accent hover:shadow-lg hover:-translate-y-1">
-                  <div className="absolute inset-0 bg-accent/10 translate-y-full transition-transform group-hover:translate-y-0"></div>
-                  <div className="relative flex items-center gap-3">
-                    <span className="font-serif text-xl font-bold text-primary group-hover:text-primary transition-colors">{prog}</span>
-                    <ArrowRight className="w-5 h-5 text-accent opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                  </div>
-                </a>
-              </motion.div>
-            ))}
           </motion.div>
         </div>
       </section>
@@ -418,7 +398,7 @@ export default function Home() {
               <Button 
                 variant="outline" 
                 size="icon" 
-                className="rounded-full w-12 h-12 border-white/20 bg-transparent text-white hover:bg-white hover:text-primary transition-colors"
+                className="rounded-full w-12 h-12 border-white/20 bg-transparent text-white hover:bg-white hover:text-primary transition-colors cursor-pointer"
                 onClick={scrollPrev}
               >
                 <ChevronLeft className="w-6 h-6" />
@@ -426,7 +406,7 @@ export default function Home() {
               <Button 
                 variant="outline" 
                 size="icon" 
-                className="rounded-full w-12 h-12 border-white/20 bg-transparent text-white hover:bg-white hover:text-primary transition-colors"
+                className="rounded-full w-12 h-12 border-white/20 bg-transparent text-white hover:bg-white hover:text-primary transition-colors cursor-pointer"
                 onClick={scrollNext}
               >
                 <ChevronRight className="w-6 h-6" />
@@ -478,8 +458,8 @@ export default function Home() {
 
       {/* PREMIUM FOOTER & CONTACT */}
       <footer id="contact" className="bg-white pt-24 pb-12 border-t border-border">
-        <div className="container mx-auto px-4 max-w-7xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
-          <div className="lg:col-span-4 space-y-8">
+        <div className="container mx-auto px-4 max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+          <div className="lg:col-span-5 space-y-8">
             <div className="flex items-center gap-3 mb-4">
               <img 
                 src={logoImg} 
@@ -507,52 +487,48 @@ export default function Home() {
                 <MessageCircle className="w-4 h-4" />
               </a>
             </div>
+
+            <div className="pt-4">
+              <h4 className="font-serif text-xl font-bold text-primary mb-6">Contact Us</h4>
+              <ul className="space-y-4 text-sm text-muted-foreground">
+                <li className="flex items-start gap-3">
+                  <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+                  <span className="leading-relaxed">
+                    Door No: 1, Kurisummootil Building,<br/>
+                    71/4, North, Muthoor,<br/>
+                    Thiruvalla, Kerala 689107,<br/>
+                    India
+                  </span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Phone className="w-5 h-5 text-accent shrink-0" />
+                  <span>+91 974 609 4794</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Phone className="w-5 h-5 text-accent shrink-0" />
+                  <span>+91 920 700 5641</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Mail className="w-5 h-5 text-accent shrink-0" />
+                  <span>frankfuteroverseas@gmail.com</span>
+                </li>
+              </ul>
+            </div>
           </div>
 
-          <div className="lg:col-span-2 lg:col-start-6">
-            <h4 className="font-serif text-lg font-bold text-primary mb-6">Company</h4>
-            <ul className="space-y-4 text-sm font-medium text-muted-foreground">
-              <li><a href="#home" className="hover:text-accent transition-colors">About Us</a></li>
-              <li><a href="#programmes" className="hover:text-accent transition-colors">Our Programmes</a></li>
-              <li><a href="#testimonials" className="hover:text-accent transition-colors">Success Stories</a></li>
-              <li><a href="#paddy-boys" className="hover:text-accent transition-colors">Paddy Boys Community</a></li>
-            </ul>
-          </div>
-
-          <div className="lg:col-span-2">
-            <h4 className="font-serif text-lg font-bold text-primary mb-6">Legal</h4>
-            <ul className="space-y-4 text-sm font-medium text-muted-foreground">
-              <li><a href="#" className="hover:text-accent transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Cookie Policy</a></li>
-            </ul>
-          </div>
-
-          <div className="lg:col-span-4">
-            <h4 className="font-serif text-lg font-bold text-primary mb-6">Contact Us</h4>
-            <ul className="space-y-4 text-sm text-muted-foreground">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                <span className="leading-relaxed">
-                  Door No: 1, Kurisummootil Building,<br/>
-                  71/4, North, Muthoor,<br/>
-                  Thiruvalla, Kerala 689107,<br/>
-                  India
-                </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-accent shrink-0" />
-                <span>+91 974 609 4794</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-accent shrink-0" />
-                <span>+91 920 700 5641</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-accent shrink-0" />
-                <span>frankfuteroverseas@gmail.com</span>
-              </li>
-            </ul>
+          <div className="lg:col-span-7">
+            <div className="w-full h-full min-h-[300px] md:min-h-[400px] rounded-3xl overflow-hidden shadow-lg border border-border/50 relative">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1170.825700236166!2d76.57468165561005!3d9.39002931174953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0625a6e0dfdc5b%3A0xe6bf44bc915309c9!2sFrankfuter%20Overseas!5e0!3m2!1sen!2sin!4v1709214731234!5m2!1sen!2sin" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen={true} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                className="absolute inset-0"
+              ></iframe>
+            </div>
           </div>
         </div>
 
