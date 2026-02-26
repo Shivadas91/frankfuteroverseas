@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.animate-fade-in-up {
+    opacity: 1;
+    transform: translateY(0);
+}

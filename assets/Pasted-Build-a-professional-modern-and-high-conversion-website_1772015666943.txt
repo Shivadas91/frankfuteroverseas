@@ -1,0 +1,43 @@
+Build a professional, modern, and high-conversion website for "Frankfuter Overseas," a study abroad consultancy. The site must be a "Static Site" (HTML/CSS/JS) so I can host it for free on GitHub Pages.
+
+1. Visual Style & Branding:
+
+Header: Place the logo on the far left. Use a clean, professional font for "Frankfuter Overseas."
+
+Hero Background: Use a high-quality image of graduating students throwing hats into the air. Apply a dark or translucent overlay so the white/light text on top is perfectly readable.
+
+Color Scheme: Choose a professional palette (e.g., Deep Navy, Gold, and White) that suits a global education brand.
+
+Sticky Element: Add a floating WhatsApp icon in the bottom-right corner of every page linking to: https://wa.me/919207005641.
+
+2. Navigation Menu:
+
+Links: Home, Our Programmes, Language Academy (Link to: https://www.instagram.com/neospeak_akademie/?hl=en), Testimonials, and Contact Us.
+
+Social Icons: Include Instagram (linking to https://www.instagram.com/frankfuter_overseas/?hl=en) and LinkedIn (linking to https://www.linkedin.com/company/frankfuter-overseas/).
+
+3. Landing Page Sections (Refer to uploaded images 3-7):
+
+Our Services Grid: Create interactive cards for the following:
+
+Study Abroad Guidance: Click opens a popup with text from Image 8.
+
+German Language Training: Button leads to a new page with text from Image 9 and a "Know More" button linking to the Neospeak Instagram.
+
+Accommodation & Travel: Click opens a popup with text from Image 10.
+
+Student Visa Assistance: Click opens a popup with the provided "Navigating the student visa process..." text.
+
+Global Student Community: Click opens a popup titled "Paddy Boys" with the provided bullet points.
+
+Why Choose Us: Recreate this section using the text from Image 6.
+
+4. Secondary Pages & Contact:
+
+Our Programmes: Build this page based on the layout in Image 1 (Expert Guidance, Career Support, Community Engagement).
+
+Contact Us Section: Recreate Image 2. Include the address, phones, and email. Embed a Google Maps iframe pointing to the Frankfuter Overseas office in Kerala.
+
+Testimonials: Create a modern slider or grid for student testimonials.
+
+5. Technical Requirement: Ensure the code is responsive (mobile-friendly) and organized into clean HTML and CSS files.

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frankfuter Overseas | Empowering Dreams</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#121e36',
+                        accent: '#eca120',
+                        background: '#fafafa',
+                        foreground: '#1a1a1a',
+                        muted: '#f1f5f9',
+                        border: '#e2e8f0'
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans antialiased bg-background text-foreground relative selection:bg-accent selection:text-primary">
+    <!-- GLASSMORPHISM HEADER -->
+    <header id="header" class="fixed top-0 w-full z-50 transition-all duration-500 border-b border-transparent bg-transparent py-5">
+        <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="assets/Blue_Gradient_Modern_Professional_Service_Health_Instagram_Pos_1772005944183.jpg" alt="Logo" class="w-10 h-10 md:w-12 md:h-12 object-cover rounded-md shadow-sm">
+                <div id="logo-text" class="font-serif text-xl md:text-2xl font-bold tracking-tight transition-colors leading-none text-white">
+                    Frankfuter
+                    <span class="block text-[9px] md:text-[10px] font-sans tracking-[0.2em] uppercase text-accent font-bold mt-1">
+                        Overseas
+                    </span>
+                </div>
+            </div>
+
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="#home" class="nav-link font-medium text-sm transition-all hover:text-accent relative group text-white/90">
+                    Home
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
+                </a>
+                <a href="programmes.html" class="nav-link font-medium text-sm transition-all hover:text-accent relative group text-white/90">
+                    Our Programmes
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
+                </a>
+                <a href="https://www.instagram.com/neospeak_akademie/?hl=en" target="_blank" class="nav-link font-medium text-sm transition-all hover:text-accent relative group text-white/90">
+                    Language Academy
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#testimonials" class="nav-link font-medium text-sm transition-all hover:text-accent relative group text-white/90">
+                    Testimonials
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
+                </a>
+                <a href="#contact" class="nav-link font-medium text-sm transition-all hover:text-accent relative group text-white/90">
+                    Contact Us
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
+                </a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4">
+                <a href="https://www.instagram.com/frankfuter_overseas/?hl=en" target="_blank" class="nav-icon transition-colors hover:text-accent text-white/80"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                <a href="https://www.linkedin.com/company/frankfuter-overseas/" target="_blank" class="nav-icon transition-colors hover:text-accent text-white/80"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+            </div>
+
+            <button id="mobile-menu-btn" class="lg:hidden p-2 transition-colors text-white">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl shadow-lg flex-col p-6 lg:hidden gap-6 border-t border-white/20 opacity-0 transition-opacity duration-300">
+            <a href="#home" class="font-medium text-lg text-foreground border-b border-border/50 pb-4">Home</a>
+            <a href="programmes.html" class="font-medium text-lg text-foreground border-b border-border/50 pb-4">Our Programmes</a>
+            <a href="https://www.instagram.com/neospeak_akademie/?hl=en" target="_blank" class="font-medium text-lg text-foreground border-b border-border/50 pb-4">Language Academy</a>
+            <a href="#testimonials" class="font-medium text-lg text-foreground border-b border-border/50 pb-4">Testimonials</a>
+            <a href="#contact" class="font-medium text-lg text-foreground border-b border-border/50 pb-4">Contact Us</a>
+            <div class="flex gap-4">
+                <a href="https://www.instagram.com/frankfuter_overseas/?hl=en" target="_blank" class="text-primary"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+                <a href="https://www.linkedin.com/company/frankfuter-overseas/" target="_blank" class="text-primary"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative min-h-[90vh] flex items-center justify-center pt-20">
+        <div class="absolute inset-0 z-0">
+            <img src="assets/hero.jpg" alt="Students" class="w-full h-full object-cover object-top opacity-60">
+            <div class="absolute inset-0 bg-primary/80 mix-blend-multiply"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 container mx-auto px-4 flex justify-center fade-in-up">
+            <div class="max-w-4xl w-full text-center">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 leading-[1.1] drop-shadow-xl">
+                    Empowering Dreams,<br />
+                    <span class="text-accent italic">Connecting Futures</span>
+                </h1>
+                <p class="text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light drop-shadow-md">
+                    We provide world-class educational guidance and premium support for your successful transition to leading global universities.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#services" class="bg-accent hover:bg-[#d9951b] text-primary font-bold rounded-full px-8 py-4 text-lg transition-all hover:scale-105 shadow-xl flex items-center justify-center gap-2 w-fit mx-auto">
+                        Our Services
+                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENTO BOX SERVICES -->
+    <section id="services" class="py-24 md:py-32 px-4 container mx-auto max-w-6xl relative z-20 -mt-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Study Abroad Guidance -->
+            <div class="col-span-1 md:col-span-2 bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-border hover:shadow-xl transition-all duration-500 group cursor-pointer" onclick="openModal('modal-study')">
+                <div class="w-16 h-16 rounded-2xl bg-[#eca120]/30 text-primary flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-accent transition-all duration-500">
+                    <i data-lucide="graduation-cap" class="w-8 h-8"></i>
+                </div>
+                <h3 class="font-serif font-bold text-2xl text-primary mb-3">Study Abroad Guidance</h3>
+                <p class="text-gray-600 leading-relaxed mb-6">Expert counseling for your academic journey.</p>
+                <div class="mt-auto inline-flex items-center text-sm font-bold text-primary group-hover:text-accent transition-colors">
+                    Know More <i data-lucide="arrow-right" class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </div>
+
+            <!-- German Language -->
+            <a href="language-training.html" class="col-span-1 bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-border hover:shadow-xl transition-all duration-500 group block">
+                <div class="w-16 h-16 rounded-2xl bg-[#eca120]/30 text-primary flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-accent transition-all duration-500">
+                    <i data-lucide="languages" class="w-8 h-8"></i>
+                </div>
+                <h3 class="font-serif font-bold text-2xl text-primary mb-3">German Language</h3>
+                <p class="text-gray-600 leading-relaxed mb-6">Master the language with certified trainers.</p>
+                <div class="mt-auto inline-flex items-center text-sm font-bold text-primary group-hover:text-accent transition-colors">
+                    Know More <i data-lucide="arrow-right" class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </a>
+
+            <!-- Accommodation -->
+            <div class="col-span-1 bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-border hover:shadow-xl transition-all duration-500 group cursor-pointer" onclick="openModal('modal-acc')">
+                <div class="w-16 h-16 rounded-2xl bg-[#eca120]/30 text-primary flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-accent transition-all duration-500">
+                    <i data-lucide="home" class="w-8 h-8"></i>
+                </div>
+                <h3 class="font-serif font-bold text-2xl text-primary mb-3">Accommodation</h3>
+                <p class="text-gray-600 leading-relaxed mb-6">Find the perfect home away from home.</p>
+                <div class="mt-auto inline-flex items-center text-sm font-bold text-primary group-hover:text-accent transition-colors">
+                    Know More <i data-lucide="arrow-right" class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </div>
+
+            <!-- Visa Assistance -->
+            <div class="col-span-1 md:col-span-2 bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-border hover:shadow-xl transition-all duration-500 group cursor-pointer" onclick="openModal('modal-visa')">
+                <div class="w-16 h-16 rounded-2xl bg-[#eca120]/30 text-primary flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-accent transition-all duration-500">
+                    <i data-lucide="plane" class="w-8 h-8"></i>
+                </div>
+                <h3 class="font-serif font-bold text-2xl text-primary mb-3">Visa Assistance</h3>
+                <p class="text-gray-600 leading-relaxed mb-6">Smooth and hassle-free visa processing.</p>
+                <div class="mt-auto inline-flex items-center text-sm font-bold text-primary group-hover:text-accent transition-colors">
+                    Know More <i data-lucide="arrow-right" class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </div>
+            </div>
+
+            <!-- Global Network Banner -->
+            <div class="col-span-1 md:col-span-3 bg-primary text-white p-8 md:p-12 rounded-3xl shadow-lg flex flex-col md:flex-row items-center justify-between overflow-hidden relative">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+                <div class="relative z-10 md:w-2/3 mb-6 md:mb-0 text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start gap-2 mb-4">
+                        <i data-lucide="globe" class="w-6 h-6 text-accent"></i>
+                        <span class="text-accent font-semibold tracking-wide uppercase text-sm">Global Network</span>
+                    </div>
+                    <h3 class="font-serif text-3xl md:text-4xl font-bold mb-4">Join our growing community</h3>
+                    <p class="text-white/70 text-lg max-w-xl">Connect with thousands of students who have successfully built their careers abroad.</p>
+                </div>
+                <div class="relative z-10">
+                    <button onclick="openModal('modal-paddy')" class="bg-white text-primary hover:bg-accent hover:text-primary font-bold rounded-full px-8 py-4 transition-all shadow-xl">
+                        Know More
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PADDY BOYS COMMUNITY SECTION -->
+    <section id="paddy-boys" class="py-24 bg-slate-50 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-[50%] h-full bg-accent/5 rounded-l-[100px] blur-3xl -z-10"></div>
+        <div class="container mx-auto px-4 max-w-5xl fade-in-up">
+            <div class="bg-white rounded-3xl p-10 md:p-16 shadow-xl border border-border relative overflow-hidden">
+                <div class="absolute -top-10 -left-10 w-40 h-40 bg-primary/5 rounded-full blur-2xl"></div>
+                <div class="relative z-10 flex flex-col md:flex-row gap-12 items-center">
+                    <div class="md:w-1/2">
+                        <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#eca120]/30 text-primary mb-6">
+                            <i data-lucide="users" class="w-8 h-8"></i>
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-serif text-primary mb-4">Paddy <span class="italic text-accent">Boys</span></h2>
+                        <h3 class="text-xl font-bold text-foreground mb-6">More than just a consultancy — we’re a family abroad.</h3>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-8">Our exclusive student network, Paddy Boys, is a vibrant community that offers everything you need to feel at home:</p>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center gap-3 font-medium text-gray-800"><span class="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center text-primary shrink-0"><i data-lucide="arrow-right" class="w-3 h-3"></i></span> Peer support and guidance</li>
+                            <li class="flex items-center gap-3 font-medium text-gray-800"><span class="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center text-primary shrink-0"><i data-lucide="arrow-right" class="w-3 h-3"></i></span> Cultural integration activities</li>
+                            <li class="flex items-center gap-3 font-medium text-gray-800"><span class="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center text-primary shrink-0"><i data-lucide="arrow-right" class="w-3 h-3"></i></span> Sports events and meetups</li>
+                            <li class="flex items-center gap-3 font-medium text-gray-800"><span class="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center text-primary shrink-0"><i data-lucide="arrow-right" class="w-3 h-3"></i></span> Local help in settling down</li>
+                        </ul>
+                        <a href="#contact" class="inline-block bg-primary text-white hover:bg-primary/90 font-bold rounded-full px-8 py-4 transition-all shadow-md">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ORGANIC FEATURE HIGHLIGHT -->
+    <section class="py-24 overflow-hidden relative bg-white">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] md:w-[80%] aspect-[2/1] bg-[#eca120]/20 rounded-[100%] blur-[80px] -z-10"></div>
+        <div class="container mx-auto px-4 max-w-4xl text-center relative z-10 fade-in-up">
+            <div class="bg-white/80 backdrop-blur-3xl border border-white p-10 md:p-20 rounded-[3rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)]">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-serif text-primary mb-8 leading-tight">Why <span class="italic text-accent">Choose Us?</span></h2>
+                <p class="text-gray-600 text-lg md:text-xl leading-relaxed mb-10">At Frankfuter Overseas, we believe in providing personalized guidance tailored to your unique aspirations. Our expert counselors have deep insights into the international education system and lifestyle, ensuring a seamless transition from your home country to your dream university.</p>
+                <a href="#contact" class="inline-block rounded-full px-8 py-4 border border-primary text-primary hover:bg-primary hover:text-white transition-all font-bold text-base">Learn more about our process</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="py-24 md:py-32 bg-primary text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 32px 32px"></div>
+        <div class="container mx-auto px-4 max-w-7xl relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 fade-in-up">
+                <div class="max-w-2xl">
+                    <h2 class="text-4xl md:text-5xl font-serif mb-6">Success <span class="italic text-accent">Stories</span></h2>
+                    <p class="text-white/70 text-lg">Hear from students who have successfully achieved their dreams and secured their visas with our comprehensive support.</p>
+                </div>
+            </div>
+
+            <!-- Scrollable Testimonial Cards -->
+            <div class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory hide-scrollbar">
+                <!-- Story 1 -->
+                <div class="min-w-[85vw] md:min-w-[400px] snap-center shrink-0">
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-xl h-full flex flex-col group">
+                        <div class="w-full relative bg-slate-100 aspect-square">
+                            <img src="assets/abi_1772005944180.jpg" alt="Abi Varghese" class="w-full h-full object-contain object-top">
+                        </div>
+                        <div class="p-8 flex-1 flex flex-col bg-white text-foreground">
+                            <div class="flex items-center justify-start gap-2 mb-4">
+                                <span class="flex h-2 w-2 rounded-full bg-green-500 relative"></span>
+                                <span class="text-xs font-bold tracking-wider uppercase text-green-600">Visa Approved</span>
+                            </div>
+                            <h4 class="font-serif font-bold text-3xl text-primary mb-2">Abi Varghese</h4>
+                            <p class="text-gray-800 font-semibold text-sm mb-6">Summer Intake 2025</p>
+                            <p class="text-gray-600 italic font-serif leading-relaxed mt-auto">"Thank you Frankfuter Overseas for the seamless processing and expert guidance. 100% recommended!"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 2 -->
+                <div class="min-w-[85vw] md:min-w-[400px] snap-center shrink-0">
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-xl h-full flex flex-col group">
+                        <div class="w-full relative bg-slate-100 aspect-square">
+                            <img src="assets/ajay_1772005944182.jpg" alt="Ajay MG" class="w-full h-full object-contain object-top">
+                        </div>
+                        <div class="p-8 flex-1 flex flex-col bg-white text-foreground">
+                            <div class="flex items-center justify-start gap-2 mb-4">
+                                <span class="flex h-2 w-2 rounded-full bg-green-500 relative"></span>
+                                <span class="text-xs font-bold tracking-wider uppercase text-green-600">Visa Approved</span>
+                            </div>
+                            <h4 class="font-serif font-bold text-3xl text-primary mb-2">Ajay MG</h4>
+                            <p class="text-gray-800 font-semibold text-sm mb-6">Summer Intake 2025</p>
+                            <p class="text-gray-600 italic font-serif leading-relaxed mt-auto">"Thank you Frankfuter Overseas for the seamless processing and expert guidance. 100% recommended!"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 3 -->
+                <div class="min-w-[85vw] md:min-w-[400px] snap-center shrink-0">
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-xl h-full flex flex-col group">
+                        <div class="w-full relative bg-slate-100 aspect-square">
+                            <img src="assets/alan__1772005944182.jpg" alt="Alan Raj" class="w-full h-full object-contain object-top">
+                        </div>
+                        <div class="p-8 flex-1 flex flex-col bg-white text-foreground">
+                            <div class="flex items-center justify-start gap-2 mb-4">
+                                <span class="flex h-2 w-2 rounded-full bg-green-500 relative"></span>
+                                <span class="text-xs font-bold tracking-wider uppercase text-green-600">Visa Approved</span>
+                            </div>
+                            <h4 class="font-serif font-bold text-3xl text-primary mb-2">Alan Raj</h4>
+                            <p class="text-gray-800 font-semibold text-sm mb-6">Summer Intake 2025</p>
+                            <p class="text-gray-600 italic font-serif leading-relaxed mt-auto">"Thank you Frankfuter Overseas for the seamless processing and expert guidance. 100% recommended!"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story 4 -->
+                <div class="min-w-[85vw] md:min-w-[400px] snap-center shrink-0">
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-xl h-full flex flex-col group">
+                        <div class="w-full relative bg-slate-100 aspect-square">
+                            <img src="assets/Chandy_1772005944183.jpg" alt="Leya Chandy" class="w-full h-full object-contain object-top">
+                        </div>
+                        <div class="p-8 flex-1 flex flex-col bg-white text-foreground">
+                            <div class="flex items-center justify-start gap-2 mb-4">
+                                <span class="flex h-2 w-2 rounded-full bg-green-500 relative"></span>
+                                <span class="text-xs font-bold tracking-wider uppercase text-green-600">Visa Approved</span>
+                            </div>
+                            <h4 class="font-serif font-bold text-3xl text-primary mb-2">Leya Chandy</h4>
+                            <p class="text-gray-800 font-semibold text-sm mb-6">Summer Intake 2025</p>
+                            <p class="text-gray-600 italic font-serif leading-relaxed mt-auto">"Thank you Frankfuter Overseas for the seamless processing and expert guidance. 100% recommended!"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER & CONTACT -->
+    <footer id="contact" class="bg-white pt-24 pb-12 border-t border-border">
+        <div class="container mx-auto px-4 max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+            <div class="lg:col-span-5 space-y-8">
+                <div class="flex items-center gap-3 mb-4">
+                    <img src="assets/Blue_Gradient_Modern_Professional_Service_Health_Instagram_Pos_1772005944183.jpg" alt="Logo" class="w-12 h-12 object-cover rounded-md shadow-sm">
+                    <div class="font-serif text-3xl font-bold text-primary leading-none">
+                        Frankfuter
+                        <span class="block text-xs font-sans tracking-[0.2em] uppercase text-accent font-bold mt-1">Overseas</span>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed max-w-sm">Empowering dreams and connecting futures through world-class educational guidance and comprehensive support.</p>
+                <div class="flex gap-4">
+                    <a href="https://www.instagram.com/frankfuter_overseas/?hl=en" target="_blank" class="w-10 h-10 rounded-full border border-border flex items-center justify-center text-primary hover:bg-accent hover:text-white hover:border-accent transition-all"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+                    <a href="https://www.linkedin.com/company/frankfuter-overseas/" target="_blank" class="w-10 h-10 rounded-full border border-border flex items-center justify-center text-primary hover:bg-accent hover:text-white hover:border-accent transition-all"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+                    <a href="https://wa.me/919207005641" target="_blank" class="w-10 h-10 rounded-full border border-border flex items-center justify-center text-primary hover:bg-[#25D366] hover:text-white hover:border-[#25D366] transition-all"><i data-lucide="message-circle" class="w-4 h-4"></i></a>
+                </div>
+                <div class="pt-4">
+                    <h4 class="font-serif text-xl font-bold text-primary mb-6">Contact Us</h4>
+                    <ul class="space-y-4 text-sm text-gray-600">
+                        <li class="flex items-start gap-3"><i data-lucide="map-pin" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i><span class="leading-relaxed">Door No: 1, Kurisummootil Building,<br/>71/4, North, Muthoor,<br/>Thiruvalla, Kerala 689107,<br/>India</span></li>
+                        <li class="flex items-center gap-3"><i data-lucide="phone" class="w-5 h-5 text-accent shrink-0"></i><span>+91 974 609 4794</span></li>
+                        <li class="flex items-center gap-3"><i data-lucide="phone" class="w-5 h-5 text-accent shrink-0"></i><span>+91 920 700 5641</span></li>
+                        <li class="flex items-center gap-3"><i data-lucide="mail" class="w-5 h-5 text-accent shrink-0"></i><span>frankfuteroverseas@gmail.com</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="lg:col-span-7">
+                <div class="w-full h-full min-h-[300px] md:min-h-[400px] rounded-3xl overflow-hidden shadow-lg border border-border/50 relative">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1170.825700236166!2d76.57468165561005!3d9.39002931174953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0625a6e0dfdc5b%3A0xe6bf44bc915309c9!2sFrankfuter%20Overseas!5e0!3m2!1sen!2sin!4v1709214731234!5m2!1sen!2sin" width="100%" height="100%" style="border: 0;" allowfullscreen loading="lazy" class="absolute inset-0"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 max-w-7xl pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-gray-500 text-sm font-medium">&copy; 2026 Frankfuter Overseas. All rights reserved.</p>
+            <div class="text-sm font-medium text-gray-500">Designed for your future.</div>
+        </div>
+    </footer>
+
+    <!-- SLEEK FLOATING WHATSAPP WIDGET -->
+    <a href="https://wa.me/919207005641" target="_blank" class="fixed bottom-6 right-6 z-50 group">
+        <div class="absolute right-0 bottom-0 flex items-center gap-3 bg-white pl-4 pr-1.5 py-1.5 rounded-full shadow-[0_10px_40px_-10px_rgba(0,0,0,0.2)] border border-border transition-all duration-300 hover:scale-105 hover:shadow-xl hover:border-green-500/30">
+            <div class="flex flex-col items-end pr-2 overflow-hidden w-0 opacity-0 group-hover:w-auto group-hover:opacity-100 transition-all duration-300 ease-out">
+                <span class="text-xs font-bold text-primary whitespace-nowrap">Chat with an Expert</span>
+                <span class="text-[10px] text-green-500 font-medium flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-500 inline-block animate-pulse"></span>Online</span>
+            </div>
+            <div class="bg-[#25D366] text-white p-3.5 rounded-full flex items-center justify-center shrink-0 shadow-inner">
+                <i data-lucide="message-circle" class="w-6 h-6"></i>
+            </div>
+        </div>
+    </a>
+
+    <!-- Modals -->
+    <div id="modal-study" class="fixed inset-0 z-[100] bg-black/80 hidden flex items-center justify-center px-4 opacity-0 transition-opacity">
+        <div class="bg-white p-8 rounded-2xl max-w-md w-full relative transform scale-95 transition-transform duration-300">
+            <button onclick="closeModals()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800"><i data-lucide="x"></i></button>
+            <h3 class="font-serif text-2xl text-primary font-bold mb-4">Study Abroad Guidance</h3>
+            <p class="text-gray-700">Comprehensive guidance covering university selection, course mapping, application strategies, and scholarship opportunities tailored to your academic background and career aspirations.</p>
+        </div>
+    </div>
+    <div id="modal-acc" class="fixed inset-0 z-[100] bg-black/80 hidden flex items-center justify-center px-4 opacity-0 transition-opacity">
+        <div class="bg-white p-8 rounded-2xl max-w-md w-full relative transform scale-95 transition-transform duration-300">
+            <button onclick="closeModals()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800"><i data-lucide="x"></i></button>
+            <h3 class="font-serif text-2xl text-primary font-bold mb-4">Accommodation</h3>
+            <p class="text-gray-700">End-to-end support for finding secure, comfortable student housing and navigating travel logistics, flight bookings, and initial settling-in procedures.</p>
+        </div>
+    </div>
+    <div id="modal-visa" class="fixed inset-0 z-[100] bg-black/80 hidden flex items-center justify-center px-4 opacity-0 transition-opacity">
+        <div class="bg-white p-8 rounded-2xl max-w-md w-full relative transform scale-95 transition-transform duration-300">
+            <button onclick="closeModals()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800"><i data-lucide="x"></i></button>
+            <h3 class="font-serif text-2xl text-primary font-bold mb-4">Visa Assistance</h3>
+            <p class="text-gray-700">Navigating the student visa process can be complex. Our experts provide step-by-step guidance on document preparation, financial proofs, interview coaching, and application submission to ensure a hassle-free visa approval.</p>
+        </div>
+    </div>
+    <div id="modal-paddy" class="fixed inset-0 z-[100] bg-black/80 hidden flex items-center justify-center px-4 opacity-0 transition-opacity">
+        <div class="bg-white p-8 rounded-2xl max-w-md w-full relative transform scale-95 transition-transform duration-300">
+            <button onclick="closeModals()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800"><i data-lucide="x"></i></button>
+            <h3 class="font-serif text-3xl text-primary font-bold mb-4">Paddy Boys</h3>
+            <p class="text-gray-700 mb-4">Frankfuter Overseas is more than just a consultancy — we’re a family abroad. Our exclusive student network, <span class="font-bold text-primary">Paddy Boys</span>, is a vibrant community that offers:</p>
+            <ul class="space-y-2">
+                <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-accent"></i> <span class="font-medium text-gray-700">Peer support and guidance</span></li>
+                <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-accent"></i> <span class="font-medium text-gray-700">Cultural integration activities</span></li>
+                <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-accent"></i> <span class="font-medium text-gray-700">Sports events and meetups</span></li>
+                <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-accent"></i> <span class="font-medium text-gray-700">Local help in settling down</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
