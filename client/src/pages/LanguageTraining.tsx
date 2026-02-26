@@ -14,11 +14,9 @@ export default function LanguageTraining() {
     <div className="min-h-screen bg-slate-50 font-sans">
       <header className="bg-white border-b py-4">
         <div className="container mx-auto px-4 flex items-center justify-between">
-          <Link href="/">
-            <a className="flex items-center gap-3">
-              <img src={logoImg} alt="Logo" className="w-10 h-10 rounded-md" />
-              <div className="font-serif text-xl font-bold text-primary">Frankfuter Overseas</div>
-            </a>
+          <Link href="/" className="flex items-center gap-3">
+            <img src={logoImg} alt="Logo" className="w-10 h-10 rounded-md" />
+            <div className="font-serif text-xl font-bold text-primary">Frankfuter Overseas</div>
           </Link>
           <Link href="/">
             <Button variant="ghost" className="flex items-center gap-2">

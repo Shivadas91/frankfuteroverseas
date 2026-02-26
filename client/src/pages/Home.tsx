@@ -164,13 +164,15 @@ export default function Home() {
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
                 </a>
               ) : (
-                <Link key={item.name} href={item.href}>
-                  <a className={`font-medium text-sm transition-all hover:text-accent relative group ${
+                <Link 
+                  key={item.name} 
+                  href={item.href}
+                  className={`font-medium text-sm transition-all hover:text-accent relative group ${
                     isScrolled ? "text-foreground" : "text-white/90"
-                  }`}>
-                    {item.name}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
-                  </a>
+                  }`}
+                >
+                  {item.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
                 </Link>
               )
             ))}
@@ -208,10 +210,13 @@ export default function Home() {
                   {item.name}
                 </a>
               ) : (
-                <Link key={item.name} href={item.href}>
-                  <a className="font-medium text-lg text-foreground border-b border-border/50 pb-4" onClick={() => setMobileMenuOpen(false)}>
-                    {item.name}
-                  </a>
+                <Link 
+                  key={item.name} 
+                  href={item.href} 
+                  className="font-medium text-lg text-foreground border-b border-border/50 pb-4" 
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.name}
                 </Link>
               )
             ))}
@@ -301,10 +306,8 @@ export default function Home() {
                     </DialogContent>
                   </Dialog>
                 ) : (
-                  <Link href={service.href!}>
-                    <a className="block w-full h-full bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-border/50 hover:shadow-xl transition-all duration-500 group">
-                      {ServiceCardContent}
-                    </a>
+                  <Link href={service.href!} className="block w-full h-full bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-border/50 hover:shadow-xl transition-all duration-500 group">
+                    {ServiceCardContent}
                   </Link>
                 )}
               </motion.div>
