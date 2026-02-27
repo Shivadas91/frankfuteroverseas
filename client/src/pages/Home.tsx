@@ -321,32 +321,37 @@ export default function Home() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
             <div className="relative z-10 md:w-2/3 mb-6 md:mb-0 text-center md:text-left">
               <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
-                <Globe className="w-6 h-6 text-accent" />
-                <span className="text-accent font-semibold tracking-wide uppercase text-sm">Global Network</span>
+                <Languages className="w-6 h-6 text-accent" />
+                <span className="text-accent font-semibold tracking-wide uppercase text-sm">Language Training</span>
               </div>
-              <h3 className="font-serif text-3xl md:text-4xl font-bold mb-4">Join our growing community</h3>
-              <p className="text-white/70 text-lg max-w-xl">Connect with thousands of students who have successfully built their careers abroad.</p>
+              <h3 className="font-serif text-3xl md:text-4xl font-bold mb-4">Neo Speak Language Academy</h3>
+              <p className="text-white/70 text-lg max-w-xl">Master foreign languages with certified trainers and achieve your desired proficiency for studying or working abroad.</p>
             </div>
             <div className="relative z-10">
               <Dialog>
                 <DialogTrigger asChild>
-                  <button className="bg-white text-primary hover:bg-accent hover:text-primary font-bold rounded-full px-8 py-4 transition-all shadow-xl">
-                    Know More
+                  <button className="bg-white text-primary hover:bg-accent hover:text-primary font-bold rounded-full px-8 py-4 transition-all shadow-xl cursor-pointer">
+                    Explore Academy
                   </button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-md bg-white rounded-2xl">
                   <DialogHeader>
-                    <DialogTitle className="font-serif text-3xl text-primary mb-2">Paddy Boys</DialogTitle>
+                    <DialogTitle className="font-serif text-3xl text-primary mb-2">Neo Speak</DialogTitle>
                     <DialogDescription className="text-base text-foreground leading-relaxed pt-2">
-                      Frankfuter Overseas is more than just a consultancy — we’re a family abroad. Our exclusive student network, <span className="font-bold text-primary">Paddy Boys</span>, is a vibrant community that offers:
+                      Our language institute, <span className="font-bold text-primary">Neo Speak Language Academy</span>, provides comprehensive language training to ensure you meet proficiency requirements:
                       <ul className="mt-4 space-y-3">
-                        {["Peer support and guidance", "Cultural integration activities", "Sports events and meetups", "Local help in settling down"].map(item => (
+                        {["Goethe-Zertifikat preparation (A1 to C1)", "Native & highly qualified trainers", "Flexible batches & online classes", "Immersive learning techniques"].map(item => (
                           <li key={item} className="flex items-center gap-2">
                             <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
                             <span className="font-medium">{item}</span>
                           </li>
                         ))}
                       </ul>
+                      <div className="mt-6 pt-4 border-t border-border/50 text-center">
+                         <a href="https://www.instagram.com/neospeak_akademie/?hl=en" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-primary font-bold hover:text-accent transition-colors">
+                            <Instagram className="w-5 h-5" /> Visit our Instagram
+                         </a>
+                      </div>
                     </DialogDescription>
                   </DialogHeader>
                 </DialogContent>
