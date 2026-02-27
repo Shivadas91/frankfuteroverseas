@@ -111,3 +111,33 @@ const observer = new IntersectionObserver((entries, observer) => {
 document.querySelectorAll('.fade-in-up').forEach(el => {
     observer.observe(el);
 });
+
+// Initialize Swiper for Testimonials
+if (typeof Swiper !== 'undefined') {
+    const swiper = new Swiper('.testimonials-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            // when window width is >= 768px
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 30
+            },
+            // when window width is >= 1024px
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 40
+            }
+        }
+    });
+}
