@@ -64,12 +64,12 @@ export default function Programmes() {
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="bg-white p-8 rounded-2xl shadow-sm border border-border">
-            <h3 className="text-2xl font-serif font-bold text-primary mb-4">Community Engagement</h3>
+            <h3 className="text-2xl font-serif font-bold text-primary mb-4">Language Academy</h3>
             <p className="text-muted-foreground mb-6">
-              Become part of the Paddy Boys network, ensuring you have a family away from home to support your cultural and social integration.
+              Master foreign languages with Neo Speak Language Academy to ensure you meet all proficiency requirements for your studies or work abroad.
             </p>
             <ul className="space-y-3">
-              {['Peer Mentorship', 'Local Meetups', 'Cultural Events'].map((item) => (
+              {['Goethe-Zertifikat Prep', 'Native Trainers', 'Flexible Batches'].map((item) => (
                 <li key={item} className="flex items-center gap-2 text-sm font-medium">
                   <CheckCircle2 className="w-4 h-4 text-accent" /> {item}
                 </li>
