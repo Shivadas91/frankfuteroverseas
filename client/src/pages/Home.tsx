@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -13,8 +13,6 @@ import {
   Phone,
   Mail,
   ArrowRight,
-  ChevronLeft,
-  ChevronRight,
   GraduationCap,
   Languages,
   Home as HomeIcon,
@@ -24,7 +22,6 @@ import {
   Users,
   CheckCircle2
 } from "lucide-react";
-import useEmblaCarousel from "embla-carousel-react";
 
 import heroImg from "@/assets/images/hero.jpg";
 
@@ -54,16 +51,6 @@ const staggerContainer = {
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center" });
-
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -117,10 +104,10 @@ export default function Home() {
 
   const navLinks = [
     { name: "Home", href: "#home", external: false },
+    { name: "About", href: "#about", external: false },
     { name: "Our Programmes", href: "/programmes", external: false },
-    { name: "Language Academy", href: "https://www.instagram.com/neospeak_akademie/?hl=en", external: true },
     { name: "Testimonials", href: "#testimonials", external: false },
-    { name: "Contact Us", href: "#contact", external: false },
+    { name: "Contact", href: "#contact", external: false },
   ];
 
   return (
@@ -251,10 +238,7 @@ export default function Home() {
               We provide world-class educational guidance and premium support for your successful transition to leading global universities.
             </motion.p>
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row justify-center gap-4">
-              <a href="#services" className="bg-accent hover:bg-accent/90 text-primary font-bold rounded-full px-8 py-4 text-lg transition-all hover:scale-105 shadow-xl flex items-center justify-center">
-                Our Services
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </a>
+              {/* Button Removed as requested */}
             </motion.div>
           </motion.div>
         </div>
@@ -324,45 +308,28 @@ export default function Home() {
                 <Languages className="w-6 h-6 text-accent" />
                 <span className="text-accent font-semibold tracking-wide uppercase text-sm">Language Training</span>
               </div>
-              <h3 className="font-serif text-3xl md:text-4xl font-bold mb-4">Neo Speak Language Academy</h3>
-              <p className="text-white/70 text-lg max-w-xl">Master foreign languages with certified trainers and achieve your desired proficiency for studying or working abroad.</p>
+              <h3 className="font-serif text-3xl md:text-4xl font-bold mb-4">Neo Speak Language Akademie</h3>
+              <p className="text-white/80 text-lg max-w-2xl leading-relaxed">
+                Master a new language with Neo Speak Language Akademie. We provide expert-led training to help you break language barriers and excel in your academic journey abroad.
+              </p>
             </div>
-            <div className="relative z-10">
-              <Dialog>
-                <DialogTrigger asChild>
-                  <button className="bg-white text-primary hover:bg-accent hover:text-primary font-bold rounded-full px-8 py-4 transition-all shadow-xl cursor-pointer">
-                    Explore Academy
-                  </button>
-                </DialogTrigger>
-                <DialogContent className="sm:max-w-md bg-white rounded-2xl">
-                  <DialogHeader>
-                    <DialogTitle className="font-serif text-3xl text-primary mb-2">Neo Speak</DialogTitle>
-                    <DialogDescription className="text-base text-foreground leading-relaxed pt-2">
-                      Our language institute, <span className="font-bold text-primary">Neo Speak Language Academy</span>, provides comprehensive language training to ensure you meet proficiency requirements:
-                      <ul className="mt-4 space-y-3">
-                        {["Goethe-Zertifikat preparation (A1 to C1)", "Native & highly qualified trainers", "Flexible batches & online classes", "Immersive learning techniques"].map(item => (
-                          <li key={item} className="flex items-center gap-2">
-                            <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                            <span className="font-medium">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <div className="mt-6 pt-4 border-t border-border/50 text-center">
-                         <a href="https://www.instagram.com/neospeak_akademie/?hl=en" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-primary font-bold hover:text-accent transition-colors">
-                            <Instagram className="w-5 h-5" /> Visit our Instagram
-                         </a>
-                      </div>
-                    </DialogDescription>
-                  </DialogHeader>
-                </DialogContent>
-              </Dialog>
+            <div className="relative z-10 mt-6 md:mt-0 flex justify-center md:justify-end">
+              <a 
+                href="https://www.instagram.com/neospeak_akademie/?hl=en" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="bg-white text-primary hover:bg-accent hover:text-primary font-bold rounded-full px-8 py-4 transition-all shadow-xl cursor-pointer inline-flex items-center gap-3 group"
+              >
+                <Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                Follow on Instagram
+              </a>
             </div>
           </motion.div>
         </motion.div>
       </section>
 
       {/* ORGANIC FEATURE HIGHLIGHT (Why Choose Us) */}
-      <section className="py-24 overflow-hidden relative bg-slate-50">
+      <section id="about" className="py-24 overflow-hidden relative bg-slate-50">
         {/* Organic Background Shape */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] md:w-[80%] aspect-[2/1] bg-secondary/20 rounded-[100%] blur-[80px] -z-10"></div>
         
@@ -387,7 +354,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIALS (Large Rectangular Cards) */}
+      {/* TESTIMONIALS (Professional Grid) */}
       <section id="testimonials" className="py-24 md:py-32 bg-primary text-white relative overflow-hidden">
         {/* Subtle background pattern */}
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
@@ -398,70 +365,47 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6"
+            className="text-center mb-24"
           >
-            <div className="max-w-2xl">
-              <h2 className="text-4xl md:text-5xl font-serif mb-6">Success <span className="italic text-accent">Stories</span></h2>
-              <p className="text-white/70 text-lg">Hear from students who have successfully achieved their dreams and secured their visas with our comprehensive support.</p>
-            </div>
-            <div className="flex gap-4">
-              <Button 
-                variant="outline" 
-                size="icon" 
-                className="rounded-full w-12 h-12 border-white/20 bg-transparent text-white hover:bg-white hover:text-primary transition-colors cursor-pointer"
-                onClick={scrollPrev}
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </Button>
-              <Button 
-                variant="outline" 
-                size="icon" 
-                className="rounded-full w-12 h-12 border-white/20 bg-transparent text-white hover:bg-white hover:text-primary transition-colors cursor-pointer"
-                onClick={scrollNext}
-              >
-                <ChevronRight className="w-6 h-6" />
-              </Button>
-            </div>
+            <h2 className="text-4xl md:text-5xl font-serif mb-6">Success <span className="italic text-accent">Stories</span></h2>
+            <p className="text-white/70 text-lg max-w-2xl mx-auto">Hear from students who have successfully achieved their dreams and secured their visas with our comprehensive support.</p>
           </motion.div>
 
-          <div className="overflow-hidden -mx-4 px-4 py-8" ref={emblaRef}>
-            <div className="flex">
-              {successStories.map((story, idx) => (
-                <div key={idx} className="flex-[0_0_100%] min-w-0 md:flex-[0_0_60%] lg:flex-[0_0_40%] pl-6">
-                  <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
-                    className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all h-full flex flex-col group"
-                  >
-                    <div className="w-full relative bg-slate-100">
-                      <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors z-10 pointer-events-none"></div>
-                      <img 
-                        src={story.img} 
-                        alt={story.name} 
-                        className="w-full object-contain object-top max-h-[400px] bg-slate-100"
-                        style={{ aspectRatio: '1/1' }}
-                      />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+            {successStories.map((story, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-white rounded-3xl p-8 shadow-xl hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center text-center relative mt-8"
+              >
+                <div className="w-24 h-24 rounded-full border-4 border-white shadow-md overflow-hidden absolute -top-12 bg-slate-100">
+                  {story.img ? (
+                    <img src={story.img} alt={story.name} className="w-full h-full object-cover object-top" />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-secondary/30 text-primary">
+                      <Users className="w-10 h-10" />
                     </div>
-                    
-                    <div className="p-8 flex-1 flex flex-col bg-white text-foreground">
-                      <div className="flex items-center justify-start gap-2 mb-4">
-                        <span className="flex h-2 w-2 rounded-full bg-green-500 relative"></span>
-                        <span className="text-xs font-bold tracking-wider uppercase text-green-600">Visa Approved</span>
-                      </div>
-                      
-                      <h4 className="font-serif font-bold text-3xl text-primary mb-2">{story.name}</h4>
-                      <p className="text-accent-foreground font-semibold text-sm mb-6">{story.details}</p>
-                      
-                      <p className="text-muted-foreground italic font-serif leading-relaxed mt-auto">
-                        "Thank you Frankfuter Overseas for the seamless processing and expert guidance. 100% recommended!"
-                      </p>
-                    </div>
-                  </motion.div>
+                  )}
                 </div>
-              ))}
-            </div>
+                
+                <div className="mt-12 flex items-center justify-center gap-2 mb-6 bg-green-50 px-3 py-1.5 rounded-full">
+                  <span className="flex h-2 w-2 rounded-full bg-green-500"></span>
+                  <span className="text-[10px] font-bold tracking-wider uppercase text-green-700">Visa Approved</span>
+                </div>
+                
+                <p className="text-muted-foreground italic font-serif leading-relaxed mb-6 text-sm flex-grow">
+                  "Thank you Frankfuter Overseas for the seamless processing and expert guidance. 100% recommended!"
+                </p>
+
+                <div className="mt-auto w-full pt-6 border-t border-border/50">
+                  <h4 className="font-serif font-bold text-xl text-primary">{story.name}</h4>
+                  <p className="text-accent-foreground font-semibold text-xs mt-1">{story.details}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
