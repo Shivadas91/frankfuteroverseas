@@ -26,11 +26,13 @@ import {
 import heroImg from "@/assets/images/hero.jpg";
 
 // Real imported assets
-import abiImg from "@assets/abi_1772005944180.jpg";
-import ajayImg from "@assets/ajay_1772005944182.jpg";
-import alanImg from "@assets/alan__1772005944182.jpg";
-import chandyImg from "@assets/Chandy_1772005944183.jpg";
-import logoImg from "@assets/Blue_Gradient_Modern_Professional_Service_Health_Instagram_Pos_1772005944183.jpg";
+import successImg1 from "@assets/frank neww test 15@5x.jpg";
+import successImg2 from "@assets/IMG-20260619-WA0002.jpg";
+import successImg3 from "@assets/IMG-20260619-WA0003.jpg";
+import successImg4 from "@assets/IMG-20260619-WA0008.jpg";
+import successImg5 from "@assets/IMG-20260619-WA0009.jpg";
+import successImg6 from "@assets/Photo from Shiva.jpg";
+import logoImg from "@assets/targeted_element_1772173323287.png";
 import studyAbroadBanner from "@assets/studyabroad-banner_1772016186712.jpg";
 
 const fadeInUp = {
@@ -70,8 +72,8 @@ export default function Home() {
       dialogContent: "Comprehensive guidance covering university selection, course mapping, application strategies, and scholarship opportunities tailored to your academic background and career aspirations."
     },
     { 
-      title: "German Language", 
-      description: "Master the language with certified trainers.", 
+      title: "German Language studies By Neo Speak Language Akademie", 
+      description: "Premium German preparation with expert-led sessions, exam strategy, and practical speaking support.", 
       icon: <Languages className="w-8 h-8" />, 
       span: "col-span-1",
       type: "link",
@@ -96,10 +98,12 @@ export default function Home() {
   ];
 
   const successStories = [
-    { name: "Abi Varghese", details: "Summer Intake 2025", img: abiImg },
-    { name: "Ajay MG", details: "Summer Intake 2025", img: ajayImg },
-    { name: "Alan Raj", details: "Summer Intake 2025", img: alanImg },
-    { name: "Leya Chandy", details: "Summer Intake 2025", img: chandyImg },
+    { img: successImg1, alt: "Frankfurter Overseas success story 1" },
+    { img: successImg2, alt: "Frankfurter Overseas success story 2" },
+    { img: successImg3, alt: "Frankfurter Overseas success story 3" },
+    { img: successImg4, alt: "Frankfurter Overseas success story 4" },
+    { img: successImg5, alt: "Frankfurter Overseas success story 5" },
+    { img: successImg6, alt: "Frankfurter Overseas success story 6" },
   ];
 
   const navLinks = [
@@ -124,11 +128,11 @@ export default function Home() {
           <div className="flex items-center gap-3">
             <img 
               src={logoImg} 
-              alt="Frankfuter Overseas Logo" 
-              className="w-10 h-10 md:w-12 md:h-12 object-cover rounded-md shadow-sm"
+              alt="Frankfurter Overseas Logo" 
+              className="h-10 md:h-12 w-[108px] md:w-[128px] object-contain shrink-0"
             />
             <div className={`font-serif text-xl md:text-2xl font-bold tracking-tight transition-colors leading-none ${isScrolled ? "text-primary" : "text-white"}`}>
-              Frankfuter
+              Frankfurter
               <span className="block text-[9px] md:text-[10px] font-sans tracking-[0.2em] uppercase text-accent font-bold mt-1">
                 Overseas
               </span>
@@ -304,24 +308,16 @@ export default function Home() {
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
             <div className="relative z-10 md:w-2/3 mb-6 md:mb-0 text-center md:text-left">
-              <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
-                <Languages className="w-6 h-6 text-accent" />
-                <span className="text-accent font-semibold tracking-wide uppercase text-sm">Language Training</span>
-              </div>
-              <h3 className="font-serif text-3xl md:text-4xl font-bold mb-4">Neo Speak Language Akademie</h3>
-              <p className="text-white/80 text-lg max-w-2xl leading-relaxed">
-                Master a new language with Neo Speak Language Akademie. We provide expert-led training to help you break language barriers and excel in your academic journey abroad.
-              </p>
-            </div>
-            <div className="relative z-10 mt-6 md:mt-0 flex justify-center md:justify-end">
+              <p className="text-accent font-semibold tracking-[0.35em] uppercase text-xs md:text-sm mb-5">Course Finder</p>
+              <h3 className="font-serif text-3xl md:text-5xl font-bold leading-tight mb-8">Explore over 2500 courses across Germany and Austria Through our Frankfurteroverseas Course Finder</h3>
               <a 
-                href="https://www.instagram.com/neospeak_akademie/?hl=en" 
+                href="https://courses.frankfurteroverseas.com" 
                 target="_blank" 
                 rel="noreferrer" 
-                className="bg-white text-primary hover:bg-accent hover:text-primary font-bold rounded-full px-8 py-4 transition-all shadow-xl cursor-pointer inline-flex items-center gap-3 group"
+                className="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-accent hover:text-primary font-bold rounded-full px-8 py-4 md:px-10 md:py-5 transition-all hover:scale-105 shadow-xl"
               >
-                <Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                Follow on Instagram
+                Explore Courses
+                <ArrowRight className="w-5 h-5" />
               </a>
             </div>
           </motion.div>
@@ -345,7 +341,7 @@ export default function Home() {
               Why <span className="italic text-accent">Choose Us?</span>
             </h2>
             <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-10">
-              At Frankfuter Overseas, we believe in providing personalized guidance tailored to your unique aspirations. Our expert counselors have deep insights into the international education system and lifestyle, ensuring a seamless transition from your home country to your dream university.
+              At Frankfurter Overseas, we believe in providing personalized guidance tailored to your unique aspirations. Our expert counselors have deep insights into the international education system and lifestyle, ensuring a seamless transition from your home country to your dream university.
             </p>
             <a href="#contact" className="inline-block rounded-full px-8 py-4 border border-primary text-primary hover:bg-primary hover:text-white transition-all font-bold text-base">
               Learn more about our process
@@ -368,43 +364,28 @@ export default function Home() {
             className="text-center mb-24"
           >
             <h2 className="text-4xl md:text-5xl font-serif mb-6">Success <span className="italic text-accent">Stories</span></h2>
-            <p className="text-white/70 text-lg max-w-2xl mx-auto">Hear from students who have successfully achieved their dreams and secured their visas with our comprehensive support.</p>
+            <p className="text-white/70 text-lg max-w-2xl mx-auto">A polished gallery of recent student wins, showcasing the real journeys behind Frankfurter Overseas success stories.</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
             {successStories.map((story, idx) => (
-              <motion.div 
+              <motion.article 
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="bg-white rounded-3xl p-8 shadow-xl hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col items-center text-center relative mt-8"
+                transition={{ delay: idx * 0.08 }}
+                className="group rounded-[2rem] overflow-hidden border border-white/10 bg-white/5 p-2 shadow-[0_20px_60px_-24px_rgba(0,0,0,0.45)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_90px_-24px_rgba(0,0,0,0.55)]"
               >
-                <div className="w-24 h-24 rounded-full border-4 border-white shadow-md overflow-hidden absolute -top-12 bg-slate-100">
-                  {story.img ? (
-                    <img src={story.img} alt={story.name} className="w-full h-full object-cover object-top" />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-secondary/30 text-primary">
-                      <Users className="w-10 h-10" />
-                    </div>
-                  )}
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem]">
+                  <img src={story.img} alt={story.alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-primary via-primary/65 to-transparent">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-white/90 backdrop-blur-sm">
+                      <span className="h-2 w-2 rounded-full bg-accent"></span>Success Story
+                    </span>
+                  </div>
                 </div>
-                
-                <div className="mt-12 flex items-center justify-center gap-2 mb-6 bg-green-50 px-3 py-1.5 rounded-full">
-                  <span className="flex h-2 w-2 rounded-full bg-green-500"></span>
-                  <span className="text-[10px] font-bold tracking-wider uppercase text-green-700">Visa Approved</span>
-                </div>
-                
-                <p className="text-muted-foreground italic font-serif leading-relaxed mb-6 text-sm flex-grow">
-                  "Thank you Frankfuter Overseas for the seamless processing and expert guidance. 100% recommended!"
-                </p>
-
-                <div className="mt-auto w-full pt-6 border-t border-border/50">
-                  <h4 className="font-serif font-bold text-xl text-primary">{story.name}</h4>
-                  <p className="text-accent-foreground font-semibold text-xs mt-1">{story.details}</p>
-                </div>
-              </motion.div>
+              </motion.article>
             ))}
           </div>
         </div>
@@ -417,8 +398,8 @@ export default function Home() {
             <div className="flex items-center gap-3 mb-4">
               <img 
                 src={logoImg} 
-                alt="Frankfuter Overseas Logo" 
-                className="w-12 h-12 object-cover rounded-md shadow-sm"
+                alt="Frankfurter Overseas Logo" 
+                className="h-12 w-[132px] object-contain shrink-0"
               />
               <div className="font-serif text-3xl font-bold text-primary leading-none">
                 Frankfuter
@@ -488,7 +469,7 @@ export default function Home() {
 
         <div className="container mx-auto px-4 max-w-7xl pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground text-sm font-medium">
-            © {new Date().getFullYear()} Frankfuter Overseas. All rights reserved.
+            © {new Date().getFullYear()} Frankfurter Overseas. All rights reserved.
           </p>
           <div className="text-sm font-medium text-muted-foreground flex items-center gap-2">
             Designed for your future.

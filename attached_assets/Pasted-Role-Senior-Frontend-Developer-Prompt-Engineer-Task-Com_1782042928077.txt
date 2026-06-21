@@ -1,0 +1,45 @@
+Role: Senior Frontend Developer & Prompt Engineer
+
+Task: Complete a branding refactor, UI layout transformation, asset replacement, and testimonial section overhaul across the website codebase (referencing relevant files like index.html, App.jsx, Navbar component, and associated data models).
+
+Please process the project files and implement the following requirements flawlessly:
+
+---
+
+### 1. Global Branding, Domain, & Logo Update
+* Perform a project-wide case-insensitive text scan for the token "frankfuter". Update all plain text instances to the correct spelling: "frankfurter".
+* Replace all occurrences of the old web domain "frankfuteroverseas.com" with the new canonical address: "frankfurteroverseas.com". Ensure this updates document <title> tags, layout footers, metadata strings, and navbar text elements.
+* Locate the main navbar/header component containing the company logo image element. Replace the existing image path asset with our newly updated logo file asset.
+
+### 2. German Language Copy Refactor
+* Locate the section offering or describing language services (where it currently states "German Language").
+* Refactor the copy string precisely to: 
+  "German Language studies By Neo Speak Language Akademie"
+
+### 3. Replace Neo Speak Interface with Course Finder Hero
+* Locate the distinct large container block featuring the blue interface style dedicated to "Neo Speak Language Akademie". 
+* Strip away the inner structural text items and replace the entire content block with this clean headline:
+  "Explore over 2500 courses across Germany and Austria Through our Frankfurteroverseas Course Finder"
+* Directly underneath this text block, integrate a beautifully styled primary Call-to-Action (CTA) button labeled: "Explore Courses"
+* Hardcode the anchor link reference ('href') of this button to point directly to our custom subdomain target:
+  `https://courses.frankfurteroverseas.com`
+* Ensure the button naturally inherits the primary theme's interactive layout properties (hover transitions, standard theme button sizing, vertical padding, and flex alignment).
+
+### 4. Overhaul Success Stories Section with Specific Image Assets
+* Locate the "Success Stories" or visa testimonials block. Entirely remove the old text-based or card layout content fields.
+* Convert this container into a clean, modern grid or slider layout optimized specifically for full image cards.
+* Embed the following local image assets as the 6 core success story gallery items. Ensure they are configured with proper lazy loading and responsive padding widths:
+  1. Image source: "frank neww test 15@5x.jpg"
+  2. Image source: "IMG-20260619-WA0002.jpg"
+  3. Image source: "IMG-20260619-WA0003.jpg"
+  4. Image source: "IMG-20260619-WA0008.jpg"
+  5. Image source: "IMG-20260619-WA0009.jpg"
+  6. Image source: "Photo from Shiva.jpg"
+* Wrap each image in a clean structural card element that looks professional, crisp, and scales uniformly across mobile, tablet, and desktop viewports.
+
+---
+
+Execution Guidelines:
+- Retain all native responsive layout utilities (Tailwind CSS, Bootstrap, or modular CSS configurations).
+- Ensure no closing grid divs or parent layout structures break when changing component copy sizes.
+- Provide a summary file list of changes made during the compilation.

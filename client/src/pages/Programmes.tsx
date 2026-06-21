@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
-import logoImg from "@assets/Blue_Gradient_Modern_Professional_Service_Health_Instagram_Pos_1772005944183.jpg";
+import logoImg from "@assets/targeted_element_1772173323287.png";
 
 export default function Programmes() {
   useEffect(() => {
@@ -15,8 +15,8 @@ export default function Programmes() {
       <header className="bg-white border-b py-4">
         <div className="container mx-auto px-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
-            <img src={logoImg} alt="Logo" className="w-10 h-10 rounded-md" />
-            <div className="font-serif text-xl font-bold text-primary">Frankfuter Overseas</div>
+            <img src={logoImg} alt="Frankfurter Overseas logo" className="h-10 w-[108px] object-contain shrink-0" />
+            <div className="font-serif text-xl font-bold text-primary">Frankfurter Overseas</div>
           </Link>
           <Link href="/">
             <Button variant="ghost" className="flex items-center gap-2">
