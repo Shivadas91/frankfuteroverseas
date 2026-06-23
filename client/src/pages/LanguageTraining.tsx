@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowLeft, BookOpen, MessageSquare, Award } from "lucide-react";
-import logoImg from "@assets/Untitled design (1).jpg";
+import logoImg from "@assets/logo.png.png";
 
 export default function LanguageTraining() {
   useEffect(() => {
@@ -14,9 +14,8 @@ export default function LanguageTraining() {
     <div className="min-h-screen bg-slate-50 font-sans">
       <header className="bg-white border-b py-4">
         <div className="container mx-auto px-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3">
-            <img src={logoImg} alt="Frankfurter Overseas logo" className="h-10 w-[108px] object-contain shrink-0" />
-            <div className="font-serif text-xl font-bold text-primary">Frankfurter Overseas</div>
+          <Link href="/" className="flex items-center" aria-label="Go to homepage">
+            <img src={logoImg} alt="Frankfurter Overseas logo" className="max-h-[52px] md:max-h-[60px] w-auto object-contain shrink-0" />
           </Link>
           <Link href="/">
             <Button variant="ghost" className="flex items-center gap-2">

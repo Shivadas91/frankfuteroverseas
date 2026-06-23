@@ -32,7 +32,7 @@ import successImg3 from "@assets/IMG-20260619-WA0003.jpg";
 import successImg4 from "@assets/IMG-20260619-WA0008.jpg";
 import successImg5 from "@assets/IMG-20260619-WA0009.jpg";
 import successImg6 from "@assets/Photo from Shiva.jpg";
-import logoImg from "@assets/Untitled design (1).jpg";
+import logoImg from "@assets/logo.png.png";
 import studyAbroadBanner from "@assets/studyabroad-banner_1772016186712.jpg";
 
 const fadeInUp = {
@@ -125,18 +125,12 @@ export default function Home() {
         }`}
       >
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-          <a href="#home" className="flex items-center gap-3" aria-label="Go to homepage">
+          <a href="#home" className="flex items-center" aria-label="Go to homepage">
             <img 
               src={logoImg} 
               alt="Frankfurter Overseas Logo" 
-              className="h-10 md:h-12 w-[108px] md:w-[128px] object-contain shrink-0"
+              className="max-h-[52px] md:max-h-[60px] w-auto object-contain shrink-0"
             />
-            <div className={`font-serif text-xl md:text-2xl font-bold tracking-tight transition-colors leading-none ${isScrolled ? "text-primary" : "text-white"}`}>
-              Frankfurter
-              <span className="block text-[9px] md:text-[10px] font-sans tracking-[0.2em] uppercase text-accent font-bold mt-1">
-                Overseas
-              </span>
-            </div>
           </a>
 
           <nav className="hidden lg:flex items-center gap-8">
