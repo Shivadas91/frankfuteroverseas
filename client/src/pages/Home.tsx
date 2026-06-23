@@ -382,26 +382,20 @@ export default function Home() {
       </section>
 
       {/* PREMIUM FOOTER & CONTACT */}
-      <footer id="contact" className="bg-white pt-24 pb-12 border-t border-border">
+      <footer id="contact" className="bg-[#F9F9F9] pt-24 pb-12 border-t border-border">
         <div className="container mx-auto px-4 max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
           <div className="lg:col-span-5 space-y-8">
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center mb-4">
               <img 
                 src={logoImg} 
                 alt="Frankfurter Overseas Logo" 
                 className="h-12 w-[132px] object-contain shrink-0"
               />
-              <div className="font-serif text-3xl font-bold text-primary leading-none">
-                Frankfuter
-                <span className="block text-xs font-sans tracking-[0.2em] uppercase text-accent font-bold mt-1">
-                  Overseas
-                </span>
-              </div>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
               Empowering dreams and connecting futures through world-class educational guidance and comprehensive support.
             </p>
-            <div className="flex gap-4">
+            <div className="flex items-center justify-start gap-4 max-w-sm">
               <a href="https://www.instagram.com/frankfuter_overseas/?hl=en" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-primary hover:bg-accent hover:text-white hover:border-accent transition-all">
                 <Instagram className="w-4 h-4" />
               </a>
