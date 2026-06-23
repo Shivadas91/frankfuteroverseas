@@ -385,11 +385,11 @@ export default function Home() {
       <footer id="contact" className="bg-[#F9F9F9] pt-24 pb-12 border-t border-border">
         <div className="container mx-auto px-4 max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
           <div className="lg:col-span-5 space-y-8">
-            <div className="flex items-center mb-4">
+            <div className="flex items-center mb-5">
               <img 
                 src={logoImg} 
                 alt="Frankfurter Overseas Logo" 
-                className="h-12 w-[132px] object-contain shrink-0"
+                className="max-w-[200px] h-auto w-auto object-contain shrink-0"
               />
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
