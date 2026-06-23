@@ -12,10 +12,10 @@ export default function Programmes() {
 
   return (
     <div className="min-h-screen bg-background font-sans">
-      <header className="bg-white border-b py-4">
-        <div className="container mx-auto px-4 flex items-center justify-between">
+      <header className="bg-white border-b border-slate-200 shadow-sm">
+        <div className="container mx-auto px-4 min-h-[96px] md:min-h-[104px] flex items-center justify-between gap-6">
           <Link href="/" className="flex items-center" aria-label="Go to homepage">
-            <img src={logoImg} alt="Frankfurter Overseas logo" className="max-h-[52px] md:max-h-[60px] w-auto object-contain shrink-0" />
+            <img src={logoImg} alt="Frankfurter Overseas logo" className="max-h-[80px] w-auto object-contain shrink-0" />
           </Link>
           <Link href="/">
             <Button variant="ghost" className="flex items-center gap-2">

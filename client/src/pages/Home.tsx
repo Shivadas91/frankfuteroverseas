@@ -118,18 +118,14 @@ export default function Home() {
     <div className="min-h-screen font-sans bg-background relative overflow-hidden text-foreground selection:bg-accent selection:text-primary">
       {/* GLASSMORPHISM HEADER */}
       <header
-        className={`fixed top-0 w-full z-50 transition-all duration-500 border-b border-transparent ${
-          isScrolled
-            ? "bg-white/90 backdrop-blur-xl shadow-sm border-white/20 py-3"
-            : "bg-transparent py-5"
-        }`}
+        className="fixed top-0 w-full z-50 border-b border-slate-200 bg-white shadow-sm"
       >
-        <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
+        <div className="container mx-auto px-6 md:px-12 min-h-[96px] md:min-h-[104px] flex justify-between items-center gap-6">
           <a href="#home" className="flex items-center" aria-label="Go to homepage">
             <img 
               src={logoImg} 
               alt="Frankfurter Overseas Logo" 
-              className="max-h-[52px] md:max-h-[60px] w-auto object-contain shrink-0"
+              className="max-h-[80px] w-auto object-contain shrink-0"
             />
           </a>
 
@@ -142,7 +138,7 @@ export default function Home() {
                   target={item.external ? "_blank" : undefined}
                   rel={item.external ? "noreferrer" : undefined}
                   className={`font-medium text-sm transition-all hover:text-accent relative group ${
-                    isScrolled ? "text-foreground" : "text-white/90"
+                    "text-primary"
                   }`}
                 >
                   {item.name}
@@ -153,7 +149,7 @@ export default function Home() {
                   key={item.name} 
                   href={item.href}
                   className={`font-medium text-sm transition-all hover:text-accent relative group ${
-                    isScrolled ? "text-foreground" : "text-white/90"
+                    "text-primary"
                   }`}
                 >
                   {item.name}
@@ -164,12 +160,12 @@ export default function Home() {
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
-            <a href="https://www.instagram.com/frankfuter_overseas/?hl=en" target="_blank" rel="noreferrer" className={`transition-colors hover:text-accent ${isScrolled ? "text-primary/70" : "text-white/80"}`}><Instagram className="w-5 h-5" /></a>
-            <a href="https://www.linkedin.com/company/frankfuter-overseas/" target="_blank" rel="noreferrer" className={`transition-colors hover:text-accent ${isScrolled ? "text-primary/70" : "text-white/80"}`}><Linkedin className="w-5 h-5" /></a>
+            <a href="https://www.instagram.com/frankfuter_overseas/?hl=en" target="_blank" rel="noreferrer" className={`transition-colors hover:text-accent text-primary/70`}><Instagram className="w-5 h-5" /></a>
+            <a href="https://www.linkedin.com/company/frankfuter-overseas/" target="_blank" rel="noreferrer" className={`transition-colors hover:text-accent text-primary/70`}><Linkedin className="w-5 h-5" /></a>
           </div>
 
           <button
-            className={`lg:hidden p-2 transition-colors ${isScrolled ? "text-primary" : "text-white"}`}
+            className="lg:hidden p-2 transition-colors text-primary"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X /> : <Menu />}
@@ -214,7 +210,7 @@ export default function Home() {
       </header>
 
       {/* MODERN HERO SECTION */}
-      <section id="home" className="relative min-h-[90vh] flex items-center justify-center pt-20">
+      <section id="home" className="relative min-h-[90vh] flex items-center justify-center pt-36 md:pt-40 mt-20 md:mt-24">
         <div className="absolute inset-0 z-0">
           <img src={studyAbroadBanner} alt="Students" className="w-full h-full object-cover object-center opacity-40 grayscale-[30%]" />
           <div className="absolute inset-0 bg-primary/95 mix-blend-multiply"></div>

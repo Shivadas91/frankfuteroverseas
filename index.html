@@ -34,41 +34,41 @@
 </head>
 <body class="font-sans antialiased bg-background text-foreground relative selection:bg-accent selection:text-primary">
     <!-- GLASSMORPHISM HEADER -->
-    <header id="header" class="fixed top-0 w-full z-50 transition-all duration-500 border-b border-transparent bg-transparent py-5">
-        <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
+    <header id="header" class="fixed top-0 w-full z-50 border-b border-slate-200 bg-white shadow-sm">
+        <div class="container mx-auto px-6 md:px-12 min-h-[96px] md:min-h-[104px] flex justify-between items-center gap-6">
             <a href="#home" class="flex items-center" aria-label="Go to homepage">
-                <img src="assets/logo.png.png" alt="Frankfurter Overseas logo" class="max-h-[52px] md:max-h-[60px] w-auto object-contain shrink-0">
+                <img src="assets/logo.png.png" alt="Frankfurter Overseas logo" class="max-h-[80px] w-auto object-contain shrink-0">
             </a>
 
             <nav class="hidden lg:flex items-center gap-8">
-                <a href="#home" class="nav-link font-medium text-sm transition-all hover:text-accent relative group text-white/90">
+                <a href="#home" class="nav-link font-medium text-sm transition-all hover:text-accent relative group text-primary">
                     Home
                     <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
                 </a>
-                <a href="programmes.html" class="nav-link font-medium text-sm transition-all hover:text-accent relative group text-white/90">
+                <a href="programmes.html" class="nav-link font-medium text-sm transition-all hover:text-accent relative group text-primary">
                     Our Programmes
                     <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
                 </a>
-                <a href="https://www.instagram.com/neospeak_akademie/?hl=en" target="_blank" class="nav-link font-medium text-sm transition-all hover:text-accent relative group text-white/90">
+                <a href="https://www.instagram.com/neospeak_akademie/?hl=en" target="_blank" class="nav-link font-medium text-sm transition-all hover:text-accent relative group text-primary">
                     Language Academy
                     <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
                 </a>
-                <a href="#testimonials" class="nav-link font-medium text-sm transition-all hover:text-accent relative group text-white/90">
+                <a href="#testimonials" class="nav-link font-medium text-sm transition-all hover:text-accent relative group text-primary">
                     Testimonials
                     <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
                 </a>
-                <a href="#contact" class="nav-link font-medium text-sm transition-all hover:text-accent relative group text-white/90">
+                <a href="#contact" class="nav-link font-medium text-sm transition-all hover:text-accent relative group text-primary">
                     Contact Us
                     <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
                 </a>
             </nav>
 
             <div class="hidden md:flex items-center gap-4">
-                <a href="https://www.instagram.com/frankfuter_overseas/?hl=en" target="_blank" class="nav-icon transition-colors hover:text-accent text-white/80"><i data-lucide="camera" class="w-5 h-5"></i></a>
-                <a href="https://www.linkedin.com/company/frankfuter-overseas/" target="_blank" class="nav-icon transition-colors hover:text-accent text-white/80"><i data-lucide="briefcase" class="w-5 h-5"></i></a>
+                <a href="https://www.instagram.com/frankfuter_overseas/?hl=en" target="_blank" class="nav-icon transition-colors hover:text-accent text-primary/70"><i data-lucide="camera" class="w-5 h-5"></i></a>
+                <a href="https://www.linkedin.com/company/frankfuter-overseas/" target="_blank" class="nav-icon transition-colors hover:text-accent text-primary/70"><i data-lucide="briefcase" class="w-5 h-5"></i></a>
             </div>
 
-            <button id="mobile-menu-btn" class="lg:hidden p-2 transition-colors text-white">
+            <button id="mobile-menu-btn" class="lg:hidden p-2 transition-colors text-primary">
                 <i data-lucide="menu"></i>
             </button>
         </div>
@@ -88,7 +88,7 @@
     </header>
 
     <!-- HERO SECTION -->
-    <section id="home" class="relative min-h-[90vh] flex items-center justify-center pt-20">
+    <section id="home" class="relative min-h-[90vh] flex items-center justify-center pt-36 md:pt-40 mt-20 md:mt-24">
         <div class="absolute inset-0 z-0">
             <img src="assets/hero.jpg" alt="Students" class="w-full h-full object-cover object-top opacity-60">
             <div class="absolute inset-0 bg-primary/80 mix-blend-multiply"></div>
@@ -101,7 +101,7 @@
                     Empowering Dreams,<br />
                     <span class="text-accent italic">Connecting Futures</span>
                 </h1>
-                <p class="text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light drop-shadow-md">
+                <p class="text-primary text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light drop-shadow-md">
                     We provide world-class educational guidance and premium support for your successful transition to leading global universities.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
@@ -210,7 +210,7 @@
                             <div class="relative aspect-[4/5] overflow-hidden rounded-[1.5rem]">
                                 <img src="assets/frank neww test 15@5x.jpg" alt="Frankfurter Overseas success story 1" loading="lazy" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
                                 <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-primary via-primary/65 to-transparent">
-                                    <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-white/90 backdrop-blur-sm">
+                                    <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-primary backdrop-blur-sm">
                                         <span class="h-2 w-2 rounded-full bg-accent"></span>Success Story
                                     </span>
                                 </div>
@@ -222,7 +222,7 @@
                             <div class="relative aspect-[4/5] overflow-hidden rounded-[1.5rem]">
                                 <img src="assets/IMG-20260619-WA0002.jpg" alt="Frankfurter Overseas success story 2" loading="lazy" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
                                 <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-primary via-primary/65 to-transparent">
-                                    <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-white/90 backdrop-blur-sm">
+                                    <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-primary backdrop-blur-sm">
                                         <span class="h-2 w-2 rounded-full bg-accent"></span>Success Story
                                     </span>
                                 </div>
@@ -234,7 +234,7 @@
                             <div class="relative aspect-[4/5] overflow-hidden rounded-[1.5rem]">
                                 <img src="assets/IMG-20260619-WA0003.jpg" alt="Frankfurter Overseas success story 3" loading="lazy" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
                                 <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-primary via-primary/65 to-transparent">
-                                    <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-white/90 backdrop-blur-sm">
+                                    <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-primary backdrop-blur-sm">
                                         <span class="h-2 w-2 rounded-full bg-accent"></span>Success Story
                                     </span>
                                 </div>
@@ -246,7 +246,7 @@
                             <div class="relative aspect-[4/5] overflow-hidden rounded-[1.5rem]">
                                 <img src="assets/IMG-20260619-WA0008.jpg" alt="Frankfurter Overseas success story 4" loading="lazy" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
                                 <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-primary via-primary/65 to-transparent">
-                                    <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-white/90 backdrop-blur-sm">
+                                    <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-primary backdrop-blur-sm">
                                         <span class="h-2 w-2 rounded-full bg-accent"></span>Success Story
                                     </span>
                                 </div>
@@ -258,7 +258,7 @@
                             <div class="relative aspect-[4/5] overflow-hidden rounded-[1.5rem]">
                                 <img src="assets/IMG-20260619-WA0009.jpg" alt="Frankfurter Overseas success story 5" loading="lazy" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
                                 <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-primary via-primary/65 to-transparent">
-                                    <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-white/90 backdrop-blur-sm">
+                                    <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-primary backdrop-blur-sm">
                                         <span class="h-2 w-2 rounded-full bg-accent"></span>Success Story
                                     </span>
                                 </div>
@@ -270,7 +270,7 @@
                             <div class="relative aspect-[4/5] overflow-hidden rounded-[1.5rem]">
                                 <img src="assets/Photo from Shiva.jpg" alt="Frankfurter Overseas success story 6" loading="lazy" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105">
                                 <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-primary via-primary/65 to-transparent">
-                                    <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-white/90 backdrop-blur-sm">
+                                    <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-primary backdrop-blur-sm">
                                         <span class="h-2 w-2 rounded-full bg-accent"></span>Success Story
                                     </span>
                                 </div>
