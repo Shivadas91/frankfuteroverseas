@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowLeft, BookOpen, MessageSquare, Award } from "lucide-react";
-import logoImg from "@assets/targeted_element_1772173323287.png";
+import logoImg from "@assets/Untitled design (1).jpg";
 
 export default function LanguageTraining() {
   useEffect(() => {
